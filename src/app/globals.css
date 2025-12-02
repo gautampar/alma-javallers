@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/satoshi/Satoshi-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+
+
+.font-satoshi { font-family: "Satoshi", sans-serif; }
+.font-lexend { font-family: "Lexend", sans-serif; }
+
+
+
+
+body {
+  overflow-x: hidden;   
+}
+
+.hero-slider .slick-dots li { margin: 0 11px;}
+
+.hero-slider .slick-dots {
+  bottom: 20px; /* dot position adjust */
+}
+
+.hero-slider .slick-dots li button:before {
+  height: 10px;
+  width: 10px;
+  background: #990097;
+  content: "";
+  border-radius: 50%;
+  outline-offset: 6px; opacity: 1;
+}
+
+.hero-slider .slick-dots li.slick-active button:before {
+  background: #990097; opacity: 1;
+  outline: 1px solid #990097;
+}
+
+.offer-slider button {
+  font-size: 22px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
