@@ -5,13 +5,16 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 
 const menu = [
-  { name: "Home", link: "/" },
-  { name: "About", link: "/about" },
-  { name: "Solutions", link: "/solutions" },
-  { name: "Clients", link: "/clients" },
-  { name: "Blog", link: "/blog" },
-  { name: "Career", link: "/career" },
-  { name: "Contact Us", link: "/contact-us" },
+  { name: "All Jewellery", link: "/" },
+  { name: "New Arrivals", link: "/about" },
+  { name: "Best-Sellers", link: "/solutions" },
+  { name: "Silver", link: "/clients" },
+  { name: "Earrings", link: "/blog" },
+  { name: "Rings", link: "/career" },
+  { name: "Women", link: "/contact-us" },
+  { name: "Men", link: "/contact-us" },
+  { name: "Gifting", link: "/contact-us" },
+  { name: "Daily Wear", link: "/contact-us" },
 ];
 
 function Header() {
@@ -29,28 +32,30 @@ function Header() {
   }, []);
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-[#FFFFFF] border-b border-[#0000001C] z-[100]">
+    <>
+      <div className="">
+        {/* <nav className="fixed top-0 left-0 w-full bg-[#FFFFFF] border-b border-[#0000001C] z-[100]">
       <div className="max-w-[1440px] mx-auto lg:px-[60px] px-[20px] lg:py-[11px] py-[14px] flex items-center justify-between">
         <div className="flex items-center gap-[20px]">
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="lg:hidden focus:outline-none"
-          >
+            >
             <Image
               height={28}
               width={28}
               src="/assets/nav/hamburger.svg"
               alt="menu"
               className="w-[28px]"
-            />
+              />
           </button>
 
           <Link href="/">
             <Image
             height={53} width={268}
-              className="rounded-[10px] w-auto h-[53px] object-cover"
-              src="/assets/nav/logo.png"
-              alt="Logo"
+            className="rounded-[10px] w-auto h-[53px] object-cover"
+            src="/assets/nav/logo.png"
+            alt="Logo"
             />
           </Link>
         </div>
@@ -58,11 +63,11 @@ function Header() {
         <div className="hidden lg:flex items-center gap-[40px]">
           {menu?.map((item, i) => (
             <Link
-              href={item.link}
+            href={item.link}
               key={i}
               className={`font-satoshi font-[700] text-[22px] leading-[2px] text-[#181618] hover:text-[#990097] transition-colors duration-300 ${pathname === item.link ? "text-[#990097]" : ""
-                }`}
-            >
+              }`}
+              >
               {item.name}
             </Link>
           ))}
@@ -71,30 +76,78 @@ function Header() {
 
       {isOpen && (
         <div
-          onClick={() => setIsOpen(false)}
-          className="fixed top-0 left-0 h-screen w-full bg-black/50 z-[99] transition-opacity duration-300 ease-in-out"
+        onClick={() => setIsOpen(false)}
+        className="fixed top-0 left-0 h-screen w-full bg-black/50 z-[99] transition-opacity duration-300 ease-in-out"
         />
       )}
 
       <div
         className={`fixed top-0 left-0 h-screen w-[75%] max-w-[300px] bg-[#FFFFFF] z-[100] shadow-2xl transition-transform duration-500 ease-in-out transform ${isOpen ? "translate-x-0" : "-translate-x-full"
-          } flex flex-col items-start pl-[30px] pt-[30px] pb-[50px] gap-[25px]`}
-      >
+        } flex flex-col items-start pl-[30px] pt-[30px] pb-[50px] gap-[25px]`}
+        >
         <div className="flex flex-col gap-[20px] w-full">
           {menu.map((item, index) => (
             <Link
-              key={index}
-              href={item.link}
-              onClick={() => setIsOpen(false)}
-              className={`font-corben text-[16px] leading-[26px] text-[#181618] hover:text-[#990097]  transition-colors duration-300 ${pathname === item.link ? "text-[#990097]" : ""
-                }`}
+            key={index}
+            href={item.link}
+            onClick={() => setIsOpen(false)}
+            className={`font-corben text-[16px] leading-[26px] text-[#181618] hover:text-[#990097]  transition-colors duration-300 ${pathname === item.link ? "text-[#990097]" : ""
+            }`}
             >
               {item.name}
             </Link>
           ))}
         </div>
       </div>
-    </nav>
+    </nav> */}
+      </div>
+      <nav>
+        <div className="flex justify-between mx-[64px] px-[12px] py-[16px]">
+          <div className="logo">
+            <Image
+              src="/assets/nav/logo.png"
+              alt="menu"
+              width={137}
+              height={34}
+              className=""
+            />
+          </div>
+          <div className="flex gap-[39px]">
+
+            <Image
+              src="/assets/nav/search.svg"
+              alt="menu"
+              width={22}
+              height={23.64}
+              className=""
+            />
+            <Image
+              src="/assets/nav/heart.svg"
+              alt="menu"
+              width={26}
+              height={22}
+              className=""
+            />
+            <Image
+              src="/assets/nav/Group.svg"
+              alt="menu"
+              width={20}
+              height={23.64}
+              className=""
+            />
+          </div>
+        </div>
+        <div className="pt-[18px] pb-[27px] ">
+          <ul className="flex justify-center gap-[50px]  ">
+            {menu.map((item, index) => (
+              <li key={index} className="font-[18px] leading-[48px] tracking-[0.2px]">
+                {item.name}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </nav>
+    </>
   );
 }
 
