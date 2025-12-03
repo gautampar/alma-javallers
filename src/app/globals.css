@@ -1,25 +1,48 @@
 @import "tailwindcss";
 
 
-
 @font-face {
-  font-family: 'Satoshi';
-  src: url('/fonts/satoshi/Satoshi-Bold.otf') format('opentype');
-  font-weight: 700;
+  font-family: 'TheinhardtPan';
+  src: url('/fonts/theinhardt-pan/theinhardt-pan-regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'goudy-old-style';
+  src: url('/fonts/Goudy/Goudy Old Style Regular.ttf') format('truetype');
+  font-weight: 400;
   font-style: normal;
 }
 
 
 
 
-.font-satoshi { font-family: "Satoshi", sans-serif; }
-.font-lexend { font-family: "Lexend", sans-serif; }
-
-
-
+.font-cormorant {   font-family: "Cormorant Garamond", serif;}
+.font-pan { font-family: "TheinhardtPan", sans-serif; }
+.font-goudy { font-family: "goudy-old-style"; }
 
 body {
   overflow-x: hidden;   
 }
+
+@keyframes arrowMove {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(5px); }
+}
+
+.arrow-animation {
+  animation: arrowMove 1.2s ease-in-out infinite;
+}
+@keyframes smoothBounce {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}
+
+.smooth-bounce {
+  animation: smoothBounce 2.2s ease-in-out infinite;
+}
+
+.sec-section { background-image: url('/assets/home/wrap1.svg'); background-repeat: no-repeat; background-size: cover}
 
 

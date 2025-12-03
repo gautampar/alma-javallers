@@ -101,19 +101,18 @@ function Header() {
       </div>
     </nav> */}
       </div>
-      <nav>
-        <div className="flex justify-between mx-[64px] px-[12px] py-[16px]">
-          <div className="logo">
+      <nav className="py-[27px] bg-[#FFFFFF] lg:px-[64px] px-[20px] fixed top-0 left-0 w-full z-100">
+        <div className="flex justify-between items-center">
+          <Link href="/">
             <Image
-              src="/assets/nav/logo.png"
+              src="/assets/nav/logo.svg"
               alt="menu"
-              width={137}
-              height={34}
-              className=""
+              width={163}
+              height={66}
+              className="object-cover"
             />
-          </div>
+          </Link>
           <div className="flex gap-[39px]">
-
             <Image
               src="/assets/nav/search.svg"
               alt="menu"
@@ -137,16 +136,22 @@ function Header() {
             />
           </div>
         </div>
-        <div className="pt-[18px] pb-[27px] ">
+        <div className="pt-[18px]">
           <ul className="flex justify-center gap-[50px]  ">
             {menu.map((item, index) => (
-              <li key={index} className="font-[18px] leading-[48px] tracking-[0.2px]">
+              <li key={index} className="font-[18px] font-pan text-[#2B3136] leading-[48px] tracking-[0.2px]">
                 {item.name}
               </li>
             ))}
           </ul>
         </div>
       </nav>
+      {/* <div className="relative bg-[#DAD2BE4D]">
+        <Image src="/assets/nav/sub-bg.svg" alt="sub" height={110} width={1920} className="object-cover h-[110px] w-full" />
+        <div className="absolute top-1/2 -translate-y-1/2 left-[78px] w-full">
+          <h1 className="font-pan text-[#2B3136] text-[32px] leading-[100%]">Need precise delivery time? <span className="font-bold underline">Login Now</span></h1>
+        </div>
+      </div> */}
     </>
   );
 }
