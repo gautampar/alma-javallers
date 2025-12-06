@@ -2,6 +2,11 @@
 import Image from "next/image";
 import CollectionSlider from "./components/slider/CollectionSlider";
 import { useState } from "react";
+import RingSlider from "./components/slider/RingSlider";
+import GiftSlider from "./components/slider/GiftSlider";
+import CategorySlider from "./components/slider/CategorySlider";
+import Alma1Slider from "./components/slider/Alma1Slider";
+import Alma2Slider from "./components/slider/Alma2Slider";
 
 const product = [
   { img: "/assets/home/img2.png", title: "For Him" },
@@ -11,8 +16,10 @@ const product = [
 
 export default function Home() {
   const tabs = ["RINGS", "BRACELETS", "PENDENTS", "EARRINGS", "NECKLACES"];
+  const categories = ["RINGS", "BRACELETS", "PENDENTS", "EARRINGS", "NECKLACES"];
 
   const [activeTab, setActiveTab] = useState("RINGS");
+  const [activeCat, setActiveCat] = useState("RINGS");
 
 
   return (
@@ -29,7 +36,7 @@ export default function Home() {
           CC EARRINGS ARE
           BACK
         </h1>
-        <div className="absolute left-1/2 -translate-x-1/2 bottom-[130px] flex items-center gap-[6px]">
+        <div className="absolute cursor-pointer left-1/2 -translate-x-1/2 bottom-[130px] flex items-center gap-[6px]">
           <Image
             src="/assets/home/btn.svg"
             alt="btn-arrow"
@@ -73,7 +80,7 @@ export default function Home() {
                 />
                 <div className="absolute left-[45px] bottom-[45px]">
                   <h6 className="font-[700] font-goudy italic uppercase pb-[12px] text-[80px] leading-[100%] text-[#FFFFFF]">{e?.title}</h6>
-                  <button className="
+                  <button className="cursor-pointer
   font-goudy font-[700] text-[28px] leading-[100%] text-[#FFFFFF]
   py-[13px] px-[25px] border border-[#FFFFFF]
   transition-all duration-300 ease-out
@@ -133,16 +140,86 @@ export default function Home() {
             <button
               key={i}
               onClick={() => setActiveTab(tab)}
-              className={`tab-btn font-goudy text-[24px] uppercase ${activeTab === tab
-                  ? "active text-[#2B3136] font-[700]"
-                  : "text-[#4E4E4E] font-[400]"
+              className={`tab-btn font-goudy cursor-pointer text-[24px] uppercase ${activeTab === tab
+                ? "active text-[#2B3136] font-[700]"
+                : "text-[#4E4E4E] font-[400]"
                 }`}
             >
               {tab}
             </button>
           ))}
         </div>
-
+        <div className="lg:px-[60px] px-[20px] overflow-hidden">
+          <RingSlider />
+        </div>
+      </section>
+      <section
+        className="bg-[#DAD2BE26] py-[62px] relative bg-cover bg-center bg-no-repeat lg:px-[60px] px-[20px]"
+        style={{
+          backgroundImage: "url('/assets/home/bg2.svg')"
+        }}
+      >
+        <div>
+          <p className="font-[700] font-goudy text-[18px] leading-[100%] text-[#2B3136] pb-[12px]"> GIFTING ON A BUDGET</p>
+          <h6 className="font-pan font-[500] text-[72px] leading-[100%] uppercase text-[#2B3136] pb-[76px]">Minimal yet Meaningful Picks for You</h6>
+        </div>
+        <div className="px-[20px] ">
+          <GiftSlider />
+        </div>
+      </section>
+      <section className="py-[102px] overflow-hidden">
+        <div className="flex justify-between items-center lg:px-[60px] px-[20px] pb-[30px]">
+          <div>
+            <p className="font-[700] font-goudy text-[18px] leading-[100%] text-[#2B3136] pb-[12px]"> ALMA MOST LOVED PICKS</p>
+            <h6 className="font-pan font-[500] text-[72px] leading-[100%] uppercase text-[#2B3136]">CURATED JUST FOR YOU</h6>
+          </div>
+          <button className="flex items-center cursor-pointer gap-[6px] group">
+            <Image
+              height={20}
+              width={20}
+              src="/assets/home/black-arrow.svg"
+              alt="arrow"
+            />
+            <p className="font-pan font-[300] text-[28px] leading-[100%] text-[#2B3136] underline-animate">
+              View all
+            </p>
+          </button>
+        </div>
+        <div className="flex items-center gap-[20px] lg:px-[60px] px-[20px] pb-[30px]">
+          {categories.map((tab, i) => (
+            <button
+              key={i}
+              onClick={() => setActiveCat(tab)}
+              className={`tab-btn cursor-pointer font-goudy text-[24px] uppercase ${activeCat === tab
+                ? "active text-[#2B3136] font-[700]"
+                : "text-[#4E4E4E] font-[400]"
+                }`}
+            >
+              {tab}
+            </button>
+          ))}
+        </div>
+        <div className="lg:px-[60px] px-[20px] overflow-hidden">
+          <CategorySlider />
+        </div>
+      </section>
+      <section className="bg-[#966846] py-[80px] ">
+        <div className="lg:px-[60px] px-[20px]">
+          <p className="uppercase font-[700] font-goudy text-[45px] leading-[100%] text-[#FFFFFF] pb-[12px] ">Alma Essentials </p>
+          <h6 className="font-[700] font-pan text-[45px] leading-[100%] text-[#FFFFFF] uppercase pb-[42px]">Chandbali Radiance</h6>
+        </div>
+        <div className="lg:pl-[60px] lg:pr-0 px-[20px] relative overflow-hidden">
+          <Alma1Slider />
+        </div>
+      </section>
+      <section className="bg-[#966846] py-[80px] mt-[102px]">
+        <div className="lg:px-[60px] px-[20px]">
+          <p className="uppercase font-[700] font-goudy text-[45px] leading-[100%] text-[#FFFFFF] pb-[12px] ">Har Banna  ji Ka Style,  </p>
+          <h6 className="font-[700] font-pan text-[45px] leading-[100%] text-[#FFFFFF] uppercase pb-[42px]">Ab Ek Click Door</h6>
+        </div>
+        <div className="lg:pl-[60px] lg:pr-0 px-[20px] relative overflow-hidden">
+          <Alma2Slider />
+        </div>
       </section>
     </div>
   );
