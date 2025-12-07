@@ -1,146 +1,112 @@
 "use client";
 import React from "react";
-import Slider from "react-slick";
 import Image from "next/image";
+import { useKeenSlider } from "keen-slider/react";
+import "keen-slider/keen-slider.min.css";
 
-function HeroSlider() {
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed: 600,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: false,
+export default function HeroSlider() {
+    const [sliderInstanceRef, slider] = useKeenSlider({
+        loop: true,
+        slides: { perView: 1 },
+        drag: true,
         autoplay: true,
-        autoplaySpeed: 3000,
-    };
+    });
+
+    const slides = [
+        {
+            bg: "/assets/home/hero-bg.png",
+            img: "/assets/home/img1.png",
+            title: "CC EARRINGS ARE BACK",
+        },
+        {
+            bg: "/assets/home/hero-bg.png",
+            img: "/assets/home/img1.png",
+            title: "NEW DESIGNS AVAILABLE",
+        },
+    ];
 
     return (
-        <div>
-            <Slider {...settings}>
-                <div>
-                    <section className="mt-[50px] lg:mt-[76px]">
-                        <div className="max-w-[1440px] w-full mx-auto px-[20px] lg:px-[60px] pt-[40px] pb-[40px] lg:pt-[60px] lg:pb-[60x]">
-                            <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-[40px] lg:gap-[0px]">
-                                <div className="text-center lg:text-left">
-                                    <h1 className="font-[700] text-[32px] lg:text-[46px] text-justify leading-[130%] font-lexend text-[#000000BF] pb-[30px]">
-                                        India’s Foremost Consumer Data Intelligence Company
-                                    </h1>
-                                    <p className="font-[600] text-[18px] lg:text-[20px] text-justify leading-[26px] lg:leading-[27px] font-satoshi text-[#575757]pb-[30px] lg:pb-[30px]">
-                                        Join our mission to provide essential support and resources to underprivileged communities around the world.
-                                    </p>
-                                    <button className="py-[16px] lg:py-[20px] px-[28px] lg:px-[30px] font-[700] text-[16px] lg:text-[17px] leading-[24px] lg:leading-[27px] text-center border border-[#990097] rounded-[12px] text-[#990097]
-          hover:bg-[#990097] hover:text-white transition-all duration-300 ease-in-out">
-                                        Our Offerings
-                                    </button>
-                                </div>
-                                <div className="flex justify-center lg:justify-end">
-                                    <Image
-                                        height={355}
-                                        width={565}
-                                        src="/assets/home/img2.png"
-                                        alt="img1"
-                                        className="rounded-[20px] object-cover w-full max-w-[500px] lg:max-w-[565px] h-auto"
-                                    />
-                                </div>
+        <section className="overflow-hidden relative mt-[120px] md:mt-[140px] lg:mt-[156px]">
+            <div ref={sliderInstanceRef} className="keen-slider">
 
-                            </div>
-                        </div>
-                    </section>
-                </div>
-                <div>
-                    <section className="mt-[50px] lg:mt-[76px]">
-                      <div className="max-w-[1440px] w-full mx-auto px-[20px] lg:px-[60px] pt-[40px] pb-[40px] lg:pt-[60px] lg:pb-[60x]">
-                            <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-[40px] lg:gap-[0px]">
-                                <div className="text-center lg:text-left">
-                                    <h1 className="font-[700] text-[32px] lg:text-[46px] text-justify leading-[130%] font-lexend text-[#000000BF] pb-[30px]">
-                                        India’s Foremost Consumer Data Intelligence Company
-                                    </h1>
-                                    <p className="font-[600] text-[18px] lg:text-[20px] text-justify leading-[26px] lg:leading-[27px] font-satoshi text-[#575757]pb-[30px] lg:pb-[30px]">
-                                        Join our mission to provide essential support and resources to underprivileged communities around the world.
-                                    </p>
-                                    <button className="py-[16px] lg:py-[20px] px-[28px] lg:px-[30px] font-[700] text-[16px] lg:text-[17px] leading-[24px] lg:leading-[27px] text-center border border-[#990097] rounded-[12px] text-[#990097]
-          hover:bg-[#990097] hover:text-white transition-all duration-300 ease-in-out">
-                                        Our Offerings
-                                    </button>
-                                </div>
-                                <div className="flex justify-center lg:justify-end">
-                                    <Image
-                                        height={355}
-                                        width={565}
-                                        src="/assets/home/img2.png"
-                                        alt="img1"
-                                        className="rounded-[20px] object-cover w-full max-w-[500px] lg:max-w-[565px] h-auto"
-                                    />
-                                </div>
+                {slides.map((item, index) => (
+                    <div key={index} className="keen-slider__slide relative">
+                        <Image
+                            src={item.bg}
+                            alt="hero-bg"
+                            width={1920}
+                            height={873}
+                            className="w-full h-[60vh] md:h-[70vh] lg:h-[873px] object-cover"
+                        />
+                        <h1
+                            className="
+                font-goudy italic text-white font-[400]
+                absolute left-[20px] md:left-[40px] lg:left-[60px]
+                top-[40px] lg:top-[103px]
+                leading-[95%]
+                text-[42px] md:text-[72px] lg:text-[122px]
+                max-w-[300px] md:max-w-[450px] lg:max-w-[566px]
+              "
+                        >
+                            {item.title.split(" ").slice(0, 2).join(" ")} <br />{" "}
+                            {item.title.split(" ").slice(2).join(" ")}
+                        </h1>
+                        <div
+                            className="
+                absolute cursor-pointer 
+                left-1/2 -translate-x-1/2 
+                bottom-[40px] md:bottom-[80px] lg:bottom-[130px] 
+                flex items-center gap-[6px]
+              "
+                        >
+                            <Image
+                                src="/assets/home/btn.svg"
+                                alt="btn-arrow"
+                                width={12}
+                                height={16}
+                                className="h-[14px] md:h-[16px] w-[10px] md:w-[12px] object-cover arrow-animation"
+                            />
 
-                            </div>
+                            <p className="font-[600] font-cormorant text-[14px] md:text-[16px] text-white leading-[100%]">
+                                Explore now
+                            </p>
                         </div>
-                    </section>
-                </div>
-                <div>
-                    <section className="mt-[50px] lg:mt-[76px]">
-                      <div className="max-w-[1440px] w-full mx-auto px-[20px] lg:px-[60px] pt-[40px] pb-[40px] lg:pt-[60px] lg:pb-[60x]">
-                            <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-[40px] lg:gap-[0px]">
-                                <div className="text-center lg:text-left">
-                                    <h1 className="font-[700] text-[32px] lg:text-[46px] text-justify leading-[130%] font-lexend text-[#000000BF] pb-[30px]">
-                                        India’s Foremost Consumer Data Intelligence Company
-                                    </h1>
-                                    <p className="font-[600] text-[18px] lg:text-[20px] text-justify leading-[26px] lg:leading-[27px] font-satoshi text-[#575757]pb-[30px] lg:pb-[30px]">
-                                        Join our mission to provide essential support and resources to underprivileged communities around the world.
-                                    </p>
-                                    <button className="py-[16px] lg:py-[20px] px-[28px] lg:px-[30px] font-[700] text-[16px] lg:text-[17px] leading-[24px] lg:leading-[27px] text-center border border-[#990097] rounded-[12px] text-[#990097]
-          hover:bg-[#990097] hover:text-white transition-all duration-300 ease-in-out">
-                                        Our Offerings
-                                    </button>
-                                </div>
-                                <div className="flex justify-center lg:justify-end">
-                                    <Image
-                                        height={355}
-                                        width={565}
-                                        src="/assets/home/img2.png"
-                                        alt="img1"
-                                        className="rounded-[20px] object-cover w-full max-w-[500px] lg:max-w-[565px] h-auto"
-                                    />
-                                </div>
 
-                            </div>
+                        <div
+                            className="
+                absolute 
+                bottom-[20px] md:bottom-[40px] lg:bottom-[64px] 
+                right-[20px] md:right-[80px] lg:right-[215px]
+              "
+                        >
+                            <Image
+                                src={item.img}
+                                alt="img1"
+                                width={258}
+                                height={406}
+                                className="
+                  object-cover rounded-[80px] md:rounded-[127.5px]
+                  w-[130px] h-[190px]
+                  md:w-[200px] md:h-[320px]
+                  lg:w-[258px] lg:h-[406px]
+                  smooth-bounce
+                "
+                            />
                         </div>
-                    </section>
-                </div>
-                <div>
-                    <section className="mt-[50px] lg:mt-[76px]">
-                      <div className="max-w-[1440px] w-full mx-auto px-[20px] lg:px-[60px] pt-[40px] pb-[40px] lg:pt-[60px] lg:pb-[60x]">
-                            <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-[40px] lg:gap-[0px]">
-                                <div className="text-center lg:text-left">
-                                    <h1 className="font-[700] text-[32px] lg:text-[46px] text-justify leading-[130%] font-lexend text-[#000000BF] pb-[30px]">
-                                        India’s Foremost Consumer Data Intelligence Company
-                                    </h1>
-                                    <p className="font-[600] text-[18px] lg:text-[20px] text-justify leading-[26px] lg:leading-[27px] font-satoshi text-[#575757]pb-[30px] lg:pb-[30px]">
-                                        Join our mission to provide essential support and resources to underprivileged communities around the world.
-                                    </p>
-                                    <button className="py-[16px] lg:py-[20px] px-[28px] lg:px-[30px] font-[700] text-[16px] lg:text-[17px] leading-[24px] lg:leading-[27px] text-center border border-[#990097] rounded-[12px] text-[#990097]
-          hover:bg-[#990097] hover:text-white transition-all duration-300 ease-in-out">
-                                        Our Offerings
-                                    </button>
-                                </div>
-                                <div className="flex justify-center lg:justify-end">
-                                    <Image
-                                        height={355}
-                                        width={565}
-                                        src="/assets/home/img2.png"
-                                        alt="img1"
-                                        className="rounded-[20px] object-cover w-full max-w-[500px] lg:max-w-[565px] h-auto"
-                                    />
-                                </div>
-
-                            </div>
-                        </div>
-                    </section>
-                </div>
-            </Slider>
-        </div>
+                    </div>
+                ))}
+            </div>
+            <button
+                onClick={() => slider.current?.next()}
+                className="absolute lg:right-[78px] right-[20px] lg:bottom-[78px] bottom-[20px] z-10 cursor-pointer"
+            >
+                <Image
+                    src="/assets/home/right-arrow.svg"
+                    alt="next"
+                    width={50}
+                    height={50}
+                />
+            </button>
+        </section>
     );
 }
-
-export default HeroSlider;

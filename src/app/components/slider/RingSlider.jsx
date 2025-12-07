@@ -70,6 +70,9 @@ export default function RingSlider() {
                 "(max-width: 640px)": {
                     slides: { perView: 1, spacing: 10 },
                 },
+                "(max-width: 480px)": {
+                    slides: { perView: 1, spacing: 10 },
+                },
             },
 
             slideChanged(slide) {
@@ -91,7 +94,7 @@ export default function RingSlider() {
     };
 
     return (
-        <div className="relative lg:px-[60px] px-[20px]">
+        <div className="relative lg:px-[60px] px-[20px] lg:pt-0 pt-[30px]">
             <div ref={sliderRef} className="keen-slider">
                 {list.map((e) => (
                     <div key={e.id} className="keen-slider__slide">

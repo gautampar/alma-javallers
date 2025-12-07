@@ -60,7 +60,6 @@ function CollectionSlider() {
                 spacing: 20,
             },
 
-            // ⭐ Responsive breakpoints
             breakpoints: {
                 "(min-width: 350px)": {
                     slides: { perView: 1, spacing: 15 },
@@ -99,10 +98,10 @@ function CollectionSlider() {
                                 width={312}
                                 height={302}
                                 src={e?.imgs}
-                                className="rounded-[16px] h-[302px] w-full object-cover"
+                                className="rounded-[16px] h-[302px] lg:max-w-full max-w-[335px] w-full object-cover"
                                 alt=""
                             />
-                            <p className="font-[700] text-[32px] leading-[100%] text-[#2B3136] font-goudy pt-[56px]">
+                            <p className="font-[700] lg:text-[32px] text-[24px] leading-[100%] text-[#2B3136] font-goudy lg:pt-[56px] pt-[30px]">
                                 {e?.name}
                             </p>
                         </div>
