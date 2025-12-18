@@ -5,8 +5,37 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 
 const menu = [
-  { name: "All Jewellery", path: "/" },
-  { name: "New Arrivals", path: "/about" },
+  {
+    name: "All Jewellery", path: "/",
+    dropdown: [
+      { name: "Rings", path: "/necklaces" },
+      { name: "Necklaces", path: "/bracelets" },
+      {
+        name: "Earrings", path: "/bangles", dropdown: [
+          { name: "Radiance Collection", path: "/bangles" },
+          { name: "Silver Jewellery’s", path: "/bangles" },
+          { name: "Boho-inspired ", path: "/bangles" },
+          { name: "Sleek earrings", path: "/bangles" },
+          { name: "Statement earrings", path: "/bangles" },
+        ]
+      },
+      { name: "Bracelets & Bangles", path: "/bangles" },
+      { name: "Pendants", path: "/bangles" },
+      { name: "Anklets", path: "/bangles" },
+      { name: "Nose Pins", path: "/bangles" },
+      { name: "Men’s Jewellery", path: "/bangles" },
+      { name: "Unisex Collections", path: "/bangles" },
+      { name: "Gift Sets", path: "/bangles" },
+    ],
+  },
+  {
+    name: "New Arrivals", path: "/about",
+    dropdown: [
+      { name: "Necklaces", path: "/necklaces" },
+      { name: "Bracelets", path: "/bracelets" },
+      { name: "Bangles", path: "/bangles" },
+    ],
+  },
   { name: "Best-Sellers", path: "/solutions" },
   { name: "Silver", path: "/clients" },
   { name: "Earrings", path: "/blog" },
@@ -68,25 +97,90 @@ function Header() {
               const isActive = pathname === item.path;
 
               return (
-                <li key={index} className="group relative cursor-pointer">
+                <li key={index} className="relative group">
                   <Link
                     href={item.path}
-                    className={`text-[16px] font-pan leading-[40px] tracking-[0.2px] transition-all duration-300
-                ${isActive ? "text-[#2B3136] font-semibold" : "text-[#2B3136]"}
-              `}
+                    className={`text-[16px] font-pan leading-[40px] transition-all
+            ${isActive ? "font-semibold" : ""}`}
                   >
                     {item.name}
                   </Link>
                   <span
-                    className={`absolute left-0 bottom-0 h-[2px] bg-[#2B3136] transition-all duration-300
-                ${isActive ? "w-full" : "w-0 group-hover:w-full"}
-              `}
+                    className={`absolute left-0 bottom-0 h-[2px] bg-[#2B3136] transition-all
+            ${isActive ? "w-full" : "w-0 group-hover:w-full"}`}
                   />
+
+                  {item.dropdown && (
+                    <div
+                      className="
+      fixed top-[160px] left-1/2 -translate-x-1/2
+      w-[1360px] max-w-[95vw]
+      opacity-0 invisible
+      group-hover:opacity-100 group-hover:visible
+      transition-all duration-300
+      z-[999]
+    "
+                    >
+                      <div className="flex">
+                        <div className="w-[240px] bg-white shadow-xl rounded-[4px] py-[12px]">
+                          <ul className="flex flex-col">
+                            {item.dropdown.map((sub, i) => (
+                              <li key={i} className="w-full">
+                                <Link
+                                  href={sub.path}
+                                  className="
+    block w-full
+    text-[15px]
+    px-[16px] py-[8px]
+    bg-transparent hover:bg-[#F2F4F5]
+    font-pan text-[#5F6C72] hover:text-[#191C1F]
+  "
+                                >
+                                  {sub.name}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        <div className="w-[10px]" />
+                        <div className="flex-1 p-[20px] bg-white shadow-xl rounded-[8px]">
+                          <div className="grid grid-cols-3 gap-[24px]">
+                            {item.dropdown
+                              .filter(sub => sub.dropdown)
+                              .map((sub, i) => (
+                                <div key={i}>
+                                  <h4 className="text-[16px] font-semibold text-[#2B3136] mb-[10px]">
+                                    {sub.name}
+                                  </h4>
+
+                                  <ul className="flex flex-col gap-[8px]">
+                                    {sub.dropdown.map((child, j) => (
+                                      <li key={j}>
+                                        <Link
+                                          href={child.path}
+                                          className="text-[14px] text-gray-600 hover:underline"
+                                        >
+                                          {child.name}
+                                        </Link>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </div>
+                              ))}
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                  )}
+
+
                 </li>
               );
             })}
-
           </ul>
+
         </div>
         {open && (
           <div className="lg:hidden mt-[15px] bg-white shadow-md rounded-[10px] p-[20px]">
