@@ -2,10 +2,16 @@
 
 
 @font-face {
-    font-family: 'Theinhardt Pan';
+    font-family: 'Theinhardt Pan regular';
     font-style: normal;
-    font-weight: normal;
-    src: local('Theinhardt Pan'), url('/fonts/theinhardt-pan/theinhardt-pan.otf') format('otf');
+    font-weight: 400;
+    src: local('Theinhardt Pan'), url('/fonts/theinhardt-pan/Theinhardt-Regular.otf') format('opentype');
+  }
+@font-face {
+    font-family: 'Theinhardt Pan Bold';
+    font-style: normal;
+    font-weight: 500;
+    src: local('Theinhardt Pan'), url('/fonts/theinhardt-pan/Theinhardt-Bold.otf') format('opentype');
   }
 @font-face {
   font-family: 'goudy-old-style';
@@ -18,7 +24,8 @@
 
 
 .font-cormorant {   font-family: "Cormorant Garamond", serif;}
-.font-pan { font-family: "Theinhardt Pan", sans-serif; }
+.font-pan-r { font-family: "Theinhardt Pan regular", sans-serif; font-weight: 400; }
+.font-pan-b { font-family: "Theinhardt Pan Bold", sans-serif; font-weight: 500; }
 .font-goudy { font-family: "goudy-old-style"; }
 
 body {

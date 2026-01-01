@@ -55,27 +55,37 @@ function Page() {
     return (
         <div className='bg-[#FFF9F2]'>
             <section className="">
-                <div className='flex gap-[24px] lg:flex-row flex-col mt-[156px] lg:px-[64px]  pt-[43px] px-[20px]'>
-                    <div className="max-w-[305px] p-[10px] w-full sticky top-[156px]">
-                        <SortByDropdown />
-                        <PriceDropdown />
-                        <CategoryDropdown />
-                        <GiftForLovedOnesDropdown />
-                        <ColorDropdown />
-                        <GenderDropdown />
+                <div className="flex gap-[24px] lg:flex-row flex-col mt-[156px] lg:px-[64px] pt-[42px] px-[20px]">
+
+                    {/* LEFT FILTER - STICKY */}
+                    <div className="w-full lg:max-w-[305px]">
+                        <div className="sticky top-[156px] p-[10px]">
+                            <SortByDropdown />
+                            <PriceDropdown />
+                            <CategoryDropdown />
+                            <GiftForLovedOnesDropdown />
+                            <ColorDropdown />
+                            <GenderDropdown />
+                        </div>
                     </div>
-                    <div className="max-w-[1433px] w-full">
-                        <div className='py-[10px] px-[20px]'>
-                            <h6 className="font-[500] font-pan text-[32px] leading-[140%] text-[#2B3136]">Earrings</h6>
-                            <div className='h-[4px] max-w-[88px] bg-[#2B3136]'></div>
+
+                    {/* RIGHT CONTENT - NORMAL SCROLL */}
+                    <div className="flex-1">
+                        <div className="py-[10px] px-[20px]">
+                            <h6 className="font-[500] font-pan text-[32px] leading-[140%] text-[#2B3136]">
+                                Earrings
+                            </h6>
+
+                            <div className="h-[4px] max-w-[88px] bg-[#2B3136]"></div>
+
                             <div className="pt-[33px] flex gap-[19px] overflow-x-auto scrollbar-hide">
                                 {categories.map((cat, index) => (
                                     <button
                                         key={index}
                                         onClick={() => setSelectedCategory(cat)}
                                         className={`whitespace-nowrap px-4 py-2 font-goudy rounded-[6px] text-sm font-semibold transition-all ${selectedCategory === cat
-                                            ? "bg-[#A24112] text-white"
-                                            : "bg-[#F3F3F3] text-[#2B3136] hover:bg-[#E6E6E6]"
+                                                ? "bg-[#A24112] text-white"
+                                                : "bg-[#F3F3F3] text-[#2B3136] hover:bg-[#E6E6E6]"
                                             }`}
                                     >
                                         {cat}
@@ -85,13 +95,17 @@ function Page() {
 
                             <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-x-[16px] lg:gap-y-[52px] gap-y-[16px]">
                                 {productsToShow.map((e, i) => (
-                                    <div key={i} className="border border-[#DDDCDC] lg:px-[16px] pt-[11px] pb-[33px]">
+                                    <div
+                                        key={i}
+                                        className="border border-[#DDDCDC] lg:px-[16px] pt-[11px] pb-[33px]"
+                                    >
                                         <div className="flex items-center justify-between pb-[28px]">
                                             <button className="bg-[#A24112] rounded-[5px] py-[9px] px-[13px] text-white text-[10px] font-bold">
                                                 {e.off}
                                             </button>
                                             <div className="like-btn" />
                                         </div>
+
                                         <div className="h-[225px] w-full flex justify-center">
                                             <Image
                                                 height={225}
@@ -102,31 +116,38 @@ function Page() {
                                             />
                                         </div>
 
-                                        <h6 className="font-[700] font-goudy text-[18px] pb-[4px] mt-[10px]">{e.name}</h6>
-                                        <p className="font-[500] font-goudy text-[14px] italic pb-[16px]">{e.price}</p>
+                                        <h6 className="font-[700] font-goudy text-[18px] pb-[4px] mt-[10px]">
+                                            {e.name}
+                                        </h6>
+                                        <p className="font-[500] font-goudy text-[14px] italic pb-[16px]">
+                                            {e.price}
+                                        </p>
 
                                         <div className="flex items-center gap-[28px]">
-                                            <Image height={32} width={41} src="/assets/home/cart.svg" className="cursor-pointer" alt="Cart" />
-                                            <button className="btn-buy cursor-pointer">Buy Now</button>
+                                            <Image
+                                                height={32}
+                                                width={41}
+                                                src="/assets/home/cart.svg"
+                                                className="cursor-pointer"
+                                                alt="Cart"
+                                            />
+                                            <button className="btn-buy cursor-pointer">
+                                                Buy Now
+                                            </button>
                                         </div>
                                     </div>
                                 ))}
                             </div>
-                            <div className='pt-[140px] pb-[66px] flex justify-center'>
-                                <button className="
-  font-[400] font-pan text-[29px] leading-[100%] text-center text-[#A24112] 
-  py-[19px] px-[40px] 
-  border-2 border-[#A24112] rounded-lg 
-  transition-all duration-300
-  hover:bg-[#A24112] hover:text-white
-">
+
+                            <div className="pt-[140px] pb-[66px] flex justify-center">
+                                <button className="font-pan text-[29px] text-[#A24112] py-[19px] px-[40px] border-2 border-[#A24112] rounded-lg transition-all hover:bg-[#A24112] hover:text-white">
                                     View More
                                 </button>
-
                             </div>
                         </div>
                     </div>
                 </div>
+
             </section>
 
         </div>
