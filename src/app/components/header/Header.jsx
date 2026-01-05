@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import LoginModal from "../LoginModal";
 
 const menu = [
   {
@@ -48,6 +49,10 @@ const menu = [
 
 function Header() {
   const [open, setOpen] = useState(false);
+  const [cartOpen, setCartOpen] = useState(false);
+  const [loginOpen, setLoginOpen] = useState(false);
+
+
   const pathname = usePathname();
 
   useEffect(() => {
@@ -74,9 +79,10 @@ function Header() {
             />
           </Link>
           <div className="hidden lg:flex gap-[30px]">
-            <Image src="/assets/nav/search.svg" width={22} height={24} alt="search" />
+            <Image src="/assets/nav/search.svg" onClick={() => setLoginOpen(true)}
+              width={22} height={24} alt="search" />
             <Image src="/assets/nav/heart.svg" width={26} height={22} alt="heart" />
-            <Image src="/assets/nav/Group.svg" width={20} height={24} alt="cart" />
+            <Image src="/assets/nav/Group.svg" width={20} height={24} alt="cart" onClick={() => setCartOpen(true)} className="cursor-pointer" />
           </div>
           <button
             className="lg:hidden"
@@ -197,19 +203,106 @@ function Header() {
             <div className="flex gap-[20px] mt-[20px]">
               <Image src="/assets/nav/search.svg" width={22} height={24} alt="search" />
               <Image src="/assets/nav/heart.svg" width={26} height={22} alt="heart" />
-              <Image src="/assets/nav/Group.svg" width={20} height={24} alt="cart" />
+              <Image src="/assets/nav/Group.svg" width={20} height={24} alt="cart" className="cursor-pointer"
+                onClick={() => setCartOpen(true)} />
             </div>
           </div>
         )}
       </nav>
+      <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
+
       {/* <div className="relative bg-[#DAD2BE4D]">
         <Image src="/assets/nav/sub-bg.svg" alt="sub" height={110} width={1920} className="object-cover h-[110px] w-full" />
         <div className="absolute top-1/2 -translate-y-1/2 left-[78px] w-full">
           <h1 className="font-pan text-[#2B3136] text-[32px] leading-[100%]">Need precise delivery time? <span className="font-bold underline">Login Now</span></h1>
         </div>
       </div> */}
+      <LoginModal open={loginOpen} onClose={() => setLoginOpen(false)} />
     </>
   );
 }
 
 export default Header;
+
+
+const CartDrawer = ({ open, onClose }) => {
+  return (
+    <>
+      <div
+        className={`fixed inset-0 bg-black/40 z-[998] transition-opacity ${open ? "opacity-100 visible" : "opacity-0 invisible"
+          }`}
+        onClick={onClose}
+      />
+
+      <div
+        className={`fixed top-0 right-0 h-full w-[400px] max-w-[90vw] bg-[#FFF9F2] z-[999]
+        transition-transform duration-300
+        ${open ? "translate-x-0" : "translate-x-full"}`}
+      >
+        <div className="bg-[#EEEEEE] py-[16px] px-[16px] flex items-center gap-[10px]">
+          <Image height={18} width={18} src="/assets/item/arrow.svg" alt="arrow" />
+          <h6 className="font-pan-b text-[14px] text-[#2B3136]">Continue shopping</h6>
+        </div>
+        <div className="px-[16px] py-[20px]">
+          <div className="flex justify-between items-center pb-[16px]">
+            <h6 className="font-pan-b text-[20px] leading-[26px] text-[#2B3136]">Shopping cart</h6>
+            <p className="font-[500] font-pan-b text-[13px] leading-[21px] text-[#798490]">1 item</p>
+          </div>
+          <div className="flex bg-[#AAFFC1] gap-[16px] items-center mb-[20px]">
+            <Image width={40} height={43} src="/assets/cart/alert.svg" alt="alert" />
+            <p className="font-pan-r text-[14px] leading-[21px] text-[#2B3136]">1 product added to your shopping cart.</p>
+          </div>
+          <div className="flex items-start justify-between">
+            <Image width={65} height={65} src="/assets/cart/dummy.png" alt="dummy" />
+            <Image width={40} height={40} src="/assets/cart/close.svg" alt="close" />
+          </div>
+          <div className="pt-[8px] pb-[20px] border-b border-[#798490]">
+            <h6 className="font-pan-b text-[14px] leading-[21px] text-[#2B3136] pb-[16px]">1x Product name</h6>
+            <div className="flex items-start justify-between pb-[16px]">
+              <h6 className="font-pan-b text-[14px] leading-[21px] text-[#2B3136]">Quantity</h6>
+              <div className="flex bg-[#FFFFFF] items-center border border-[#798490]">
+                <p className="h-[41px] w-[44px] flex justify-center items-center text-[#798490] font-pan-r text-[23px] leading-[21px] #798490">-</p>
+                <p className="h-[41px] w-[44px] flex justify-center items-center text-[#798490] font-pan-r text-[23px] leading-[21px] #798490">1</p>
+                <p className="h-[41px] w-[44px] flex justify-center items-center text-[#798490] font-pan-r text-[23px] leading-[21px] #798490">+</p>
+              </div>
+            </div>
+            <p className="font-pan-b text-[14px] leading-[21px] text-[#2B3136] text-right">₹145.00</p>
+          </div>
+          <div className="pt-[17px] grid gap-[16px]">
+            <div className="flex justify-between items-center">
+              <h6 className="font-pan-b text-[14px] leading-[21px] text-[#2B3136]">Subtotal</h6>
+              <h6 className="font-pan-b text-[14px] leading-[21px] text-[#2B3136]">88.00*</h6>
+            </div>
+            <div className="flex justify-between items-center">
+              <h6 className="font-pan-b text-[14px] leading-[21px] text-[#2B3136]">Shipping Costs</h6>
+              <h6 className="font-pan-b text-[14px] leading-[21px] text-[#2B3136]">+₹145.00</h6>
+            </div>
+            <p className="font-pan-r text-[11px] leading-[16px] text-[#2B3136]">* Prices incl. GST plus shipping costs</p>
+            <button
+              className="
+    bg-[#A24112]
+    w-full
+    text-center
+    py-[12px]
+    rounded-[8px]
+    font-pan-r
+    text-[20px]
+    leading-[20px]
+    text-[#FFFFFF]
+    transition-all
+    duration-300
+    hover:bg-[#8A3610]
+    hover:shadow-lg
+    hover:-translate-y-[1px]
+  "
+            >
+              Proceed to checkout
+            </button>
+            <p className="font-pan-r text-[12px] leading-[18px] text-[#2B3136] underline">View cart for more product details</p>
+          </div>
+        </div>
+
+      </div>
+    </>
+  );
+};
