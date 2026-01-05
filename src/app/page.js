@@ -238,7 +238,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="hidden bg-[#DAD2BE26] py-[62px] relative bg-cover bg-center bg-no-repeat lg:px-[60px] px-[20px]"
+      <section className="bg-[#DAD2BE26] py-[62px] relative bg-cover bg-center bg-no-repeat lg:px-[60px] px-[20px]"
         style={{
           backgroundImage: "url('/assets/home/bg2.svg')"
         }}
@@ -251,7 +251,7 @@ export default function Home() {
           <GiftSlider />
         </div>
       </section>
-      <section className="hidden py-[102px] overflow-hidden">
+      <section className="py-[102px] overflow-hidden">
         <div className="flex justify-between items-center lg:px-[60px] px-[20px] pb-[30px]">
           <div>
             <p className="font-[700] font-goudy text-[18px] leading-[100%] text-[#2B3136] pb-[12px]"> ALMA MOST LOVED PICKS</p>
@@ -287,7 +287,7 @@ export default function Home() {
           <CategorySlider />
         </div>
       </section>
-      <section className="hidden bg-[#966846] py-[80px] ">
+      <section className="bg-[#966846] py-[80px] ">
         <div className="lg:px-[60px] px-[20px]">
           <p className="uppercase font-[700] font-goudy text-[45px] leading-[100%] text-[#FFFFFF] pb-[12px] ">Alma Essentials </p>
           <h6 className="font-[700] font-pan text-[45px] leading-[100%] text-[#FFFFFF] uppercase pb-[42px]">Chandbali Radiance</h6>
@@ -296,7 +296,7 @@ export default function Home() {
           <Alma1Slider />
         </div>
       </section>
-      <section className="hidden bg-[#966846] py-[80px] mt-[102px]">
+      <section className="bg-[#966846] py-[80px] mt-[102px]">
         <div className="lg:px-[60px] px-[20px]">
           <p className="uppercase font-[700] font-goudy text-[45px] leading-[100%] text-[#FFFFFF] pb-[12px] ">Har Banna  ji Ka Style,  </p>
           <h6 className="font-[700] font-pan text-[45px] leading-[100%] text-[#FFFFFF] uppercase pb-[42px]">Ab Ek Click Door</h6>
@@ -305,7 +305,7 @@ export default function Home() {
           <Alma2Slider />
         </div>
       </section>
-      <section className="hidden lg:pt-[180px] pt-[100px]">
+      <section className="lg:pt-[180px] pt-[100px]">
         <div className="max-w-[1540px] w-full mx-auto">
           <p className="font-[700] font-goudy text-[28px] leading-[1] text-[#2B3136] text-center pb-[12px]">SHOP BY COLOR</p>
           <h6 className="font-[500] font-pan text-[72px] w-full leading-[1] uppercase text-[#2B3136] text-center pb-[44px]">Because every detail says something</h6>
@@ -328,7 +328,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="hidden lg:py-[101px] py-[80px] border-b border-[#D9D9D9]">
+      <section className="lg:py-[101px] py-[80px] border-b border-[#D9D9D9]">
         <div className="max-w-[1540px] w-full mx-auto">
           <p className="font-[700] font-goudy text-[28px] leading-[1] text-[#2B3136] text-center pb-[12px]">GIFTS FOR YOUR LOVED ONES</p>
           <h6 className="font-[500] font-pan text-[42px] w-full leading-[1] uppercase text-[#2B3136] text-center pb-[44px]">SHOW LOVE THROUGH TIMELESS PIECES</h6>
@@ -346,7 +346,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="hidden py-[62px]">
+      <section className="py-[62px]">
         <div className="max-w-[1671px] w-full mx-auto">
           <div className="grid lg:grid-cols-4 grid-cols-1">
             <div className="max-w-[216px] w-full">
@@ -372,7 +372,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="hidden bg-[#966846] lg:pt-[80px] pt-[50px] lg:px-[60px] px-[20px] lg:pb-[120px] pb-[80px]">
+      <section className="bg-[#966846] lg:pt-[80px] pt-[50px] lg:px-[60px] px-[20px] lg:pb-[120px] pb-[80px]">
         <div className="lg:pb-[120px] pb-[60px]">
           <p className="font-[700] font-goudy text-[14px] leading-[1] text-white pb-[24px]">FOLLOW US ON</p>
           <h6 className="font-[700] font-pan text-[100px] leading-[120px] tracking-[2%] text-[#FFFFFF] pb-[27px]">INSTAGRAM</h6>
