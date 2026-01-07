@@ -45,8 +45,8 @@ export default function Home() {
         <HeroSlider />
       </div>
 
-      <section className="overflow-hidden sec-section lg:px-[60px] px-[20px] lg:py-[138px] py-[60px]">
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-[20px] lg:gap-[36px]">
+      <section className="overflow-hidden sec-section px-4 sm:px-6 md:px-8 lg:px-[60px] py-10 sm:py-14 md:py-20 lg:py-[60px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-9">
           {product?.map((e, i) => (
             <div key={i} className="relative w-full">
               <Image
@@ -55,31 +55,26 @@ export default function Home() {
                 width={682}
                 height={682}
                 className="
-            w-full 
-            h-[420px] 
-            sm:h-[500px] 
-            md:h-[550px] 
-            lg:h-[650px] 
-            object-cover 
-            rounded-[12px] sm:rounded-[14px] lg:rounded-[16px]
+            w-full
+            h-[300px]
+            sm:h-[320px]
+            md:h-[400px]
+            lg:h-[500px]
+            object-cover
+            rounded-xl sm:rounded-2xl
           "
               />
-              <div
-                className="
-            absolute 
-            left-[20px] bottom-[20px]
-            sm:left-[30px] sm:bottom-[30px]
-            lg:left-[45px] lg:bottom-[45px]
-          "
-              >
+
+
+              <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-6 lg:p-10">
                 <h6
                   className="
-              font-goudy italic uppercase font-[700] text-white leading-[100%]
-              text-[32px] 
-              sm:text-[45px] 
-              md:text-[55px] 
-              lg:text-[80px]
-              pb-[8px] sm:pb-[10px] lg:pb-[12px]
+              font-goudy italic uppercase font-bold text-white leading-none
+              text-2xl
+              sm:text-2xl
+              md:text-3xl
+              lg:text-4xl
+              mb-2 sm:mb-3
             "
                 >
                   {e?.title}
@@ -87,13 +82,10 @@ export default function Home() {
 
                 <button
                   className="
-              cursor-pointer
-              font-goudy font-[700] text-white
-              text-[16px] sm:text-[20px] md:text-[24px] lg:text-[28px]
-              py-[8px] px-[16px]
-              sm:py-[10px] sm:px-[20px]
-              md:py-[12px] md:px-[22px]
-              lg:py-[13px] lg:px-[25px]
+              w-fit
+              font-goudy font-bold text-white
+              text-sm sm:text-base md:text-lg lg:text-xl
+              px-4 py-2 sm:px-5 sm:py-2.5 lg:px-6 lg:py-3
               border border-white
               transition-all duration-300 ease-out
               hover:bg-white hover:text-black hover:scale-105
@@ -107,7 +99,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-[60px] md:py-[80px] lg:py-[102px] overflow-hidden">
+
+      <section className="py-[60px] md:py-[60px] lg:py-[82px] overflow-hidden">
         <div
           className="
       flex flex-col md:flex-row justify-between items-start md:items-center
@@ -129,7 +122,7 @@ export default function Home() {
             <h6
               className="
           font-pan font-[500] uppercase text-[#2B3136] leading-[100%]
-          text-[32px] sm:text-[48px] md:text-[60px] lg:text-[72px]
+          text-[32px] md:text-[48px] lg:text-[50px]
         "
             >
               Crafted with Culture
@@ -160,7 +153,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="pb-[60px] md:py-[80px] lg:py-[102px] overflow-hidden">
+      <section className="pb-[60px] md:pb-[60px] pt-[20px] lg:pb-[75px] lg:pt-[40px] overflow-hidden">
         <div
           className="
       flex flex-col md:flex-row justify-between items-start md:items-center
@@ -182,7 +175,7 @@ export default function Home() {
             <h6
               className="
           font-pan font-[500] uppercase text-[#2B3136] leading-[100%]
-          text-[28px] sm:text-[40px] md:text-[52px] lg:text-[72px]
+          text-[32px] md:text-[48px] lg:text-[50px]
         "
             >
               CURATED JUST FOR YOU
@@ -221,7 +214,7 @@ export default function Home() {
               onClick={() => setActiveTab(tab)}
               className={`
           whitespace-nowrap font-goudy cursor-pointer uppercase
-          text-[16px] sm:text-[20px] md:text-[22px] lg:text-[24px]
+          text-[14px] lg:text-[16px]
           transition-all duration-300
           ${activeTab === tab
                   ? "text-[#2B3136] font-[700]"
@@ -238,59 +231,123 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[#DAD2BE26] py-[62px] relative bg-cover bg-center bg-no-repeat lg:px-[60px] px-[20px]"
+      <section
+        className="
+    relative bg-cover bg-center bg-no-repeat
+    bg-[#DAD2BE26]
+    px-4 sm:px-6 md:px-10 lg:px-[60px]
+    py-10 sm:py-14 md:py-16 lg:py-[62px]
+  "
         style={{
-          backgroundImage: "url('/assets/home/bg2.svg')"
+          backgroundImage: "url('/assets/home/bg2.svg')",
         }}
       >
-        <div>
-          <p className="font-[700] font-goudy text-[18px] leading-[100%] text-[#2B3136] pb-[12px]"> GIFTING ON A BUDGET</p>
-          <h6 className="font-pan font-[500] text-[72px] leading-[100%] uppercase text-[#2B3136] pb-[76px]">Minimal yet Meaningful Picks for You</h6>
+        {/* Heading */}
+        <div className="max-w-[900px]">
+          <p
+            className="
+        font-goudy font-bold text-[#2B3136] leading-none
+        text-sm sm:text-base md:text-lg
+        pb-2 sm:pb-3
+      "
+          >
+            GIFTING ON A BUDGET
+          </p>
+
+          <h6
+            className="
+        font-pan font-medium uppercase text-[#2B3136] leading-tight
+        text-2xl sm:text-3xl md:text-4xl lg:text-[45px]
+        pb-8 sm:pb-12 md:pb-16 lg:pb-[56px]
+      "
+          >
+            Minimal yet Meaningful Picks for You
+          </h6>
         </div>
-        <div className="px-[20px] ">
+
+        {/* Slider */}
+        <div className="px-0 sm:px-4 md:px-6">
           <GiftSlider />
         </div>
       </section>
-      <section className="py-[102px] overflow-hidden">
-        <div className="flex justify-between items-center lg:px-[60px] px-[20px] pb-[30px]">
+
+      <section className="py-10 sm:py-14 md:py-20 lg:py-[102px] overflow-hidden">
+        {/* Heading Row */}
+        <div
+          className="
+      flex flex-col sm:flex-row
+      sm:items-center sm:justify-between
+      gap-4
+      px-4 sm:px-6 md:px-10 lg:px-[60px]
+      pb-6 sm:pb-8
+    "
+        >
           <div>
-            <p className="font-[700] font-goudy text-[18px] leading-[100%] text-[#2B3136] pb-[12px]"> ALMA MOST LOVED PICKS</p>
-            <h6 className="font-pan font-[500] text-[72px] leading-[100%] uppercase text-[#2B3136]">CURATED JUST FOR YOU</h6>
+            <p className="font-goudy font-bold text-[#2B3136] text-sm sm:text-base md:text-lg pb-2">
+              ALMA MOST LOVED PICKS
+            </p>
+
+            <h6
+              className="
+          font-pan font-medium uppercase text-[#2B3136] leading-tight
+          text-2xl sm:text-3xl md:text-4xl lg:text-[50px]
+        "
+            >
+              CURATED JUST FOR YOU
+            </h6>
           </div>
-          <button className="flex items-center cursor-pointer gap-[6px] group">
+
+          <button className="flex items-center gap-2 cursor-pointer group self-start sm:self-auto">
             <Image
-              height={20}
-              width={20}
+              height={18}
+              width={18}
               src="/assets/home/black-arrow.svg"
               alt="arrow"
             />
-            <p className="font-pan font-[300] text-[28px] leading-[100%] text-[#2B3136] underline-animate">
+            <p className="font-pan font-light text-base sm:text-lg text-[#2B3136] underline-animate">
               View all
             </p>
           </button>
         </div>
-        <div className="flex items-center gap-[20px] lg:px-[60px] px-[20px] pb-[30px]">
+
+        {/* Category Tabs */}
+        <div
+          className="
+      flex items-center gap-4
+      overflow-x-auto scrollbar-hide
+      px-4 sm:px-6 md:px-10 lg:px-[60px]
+      pb-6
+    "
+        >
           {categories.map((tab, i) => (
             <button
               key={i}
               onClick={() => setActiveCat(tab)}
-              className={`tab-btn cursor-pointer font-goudy text-[24px] uppercase ${activeCat === tab
-                ? "active text-[#2B3136] font-[700]"
-                : "text-[#4E4E4E] font-[400]"
-                }`}
+              className={`
+          whitespace-nowrap
+          cursor-pointer font-goudy uppercase
+          text-sm sm:text-base
+          transition-all
+          ${activeCat === tab
+                  ? "text-[#2B3136] font-bold"
+                  : "text-[#4E4E4E] font-normal"}
+        `}
             >
               {tab}
             </button>
           ))}
         </div>
-        <div className="lg:px-[60px] px-[20px] overflow-hidden">
+
+        {/* Slider */}
+        <div className="px-4 sm:px-6 md:px-10 lg:px-[60px] overflow-hidden">
           <CategorySlider />
         </div>
       </section>
+
       <section className="bg-[#966846] py-[80px] ">
         <div className="lg:px-[60px] px-[20px]">
-          <p className="uppercase font-[700] font-goudy text-[45px] leading-[100%] text-[#FFFFFF] pb-[12px] ">Alma Essentials </p>
-          <h6 className="font-[700] font-pan text-[45px] leading-[100%] text-[#FFFFFF] uppercase pb-[42px]">Chandbali Radiance</h6>
+          <p className="uppercase font-[700] font-goudy text-[35px] leading-[100%] text-[#FFFFFF] pb-[12px] ">Alma Essentials </p>
+          <h6 className="font-[700] font-pan text-[35px] leading-[100%] text-[#FFFFFF] uppercase pb-[42px]">Chandbali Radiance</h6>
         </div>
         <div className="lg:pl-[60px] lg:pr-0 px-[20px] relative overflow-hidden">
           <Alma1Slider />
@@ -298,8 +355,8 @@ export default function Home() {
       </section>
       <section className="bg-[#966846] py-[80px] mt-[102px]">
         <div className="lg:px-[60px] px-[20px]">
-          <p className="uppercase font-[700] font-goudy text-[45px] leading-[100%] text-[#FFFFFF] pb-[12px] ">Har Banna  ji Ka Style,  </p>
-          <h6 className="font-[700] font-pan text-[45px] leading-[100%] text-[#FFFFFF] uppercase pb-[42px]">Ab Ek Click Door</h6>
+          <p className="uppercase font-[700] font-goudy text-[35px] leading-[100%] text-[#FFFFFF] pb-[12px] ">Har Banna  ji Ka Style,  </p>
+          <h6 className="font-[700] font-pan text-[35px] leading-[100%] text-[#FFFFFF] uppercase pb-[42px]">Ab Ek Click Door</h6>
         </div>
         <div className="lg:pl-[60px] lg:pr-0 px-[20px] relative overflow-hidden">
           <Alma2Slider />
@@ -308,7 +365,7 @@ export default function Home() {
       <section className="lg:pt-[180px] pt-[100px]">
         <div className="max-w-[1540px] w-full mx-auto">
           <p className="font-[700] font-goudy text-[28px] leading-[1] text-[#2B3136] text-center pb-[12px]">SHOP BY COLOR</p>
-          <h6 className="font-[500] font-pan text-[72px] w-full leading-[1] uppercase text-[#2B3136] text-center pb-[44px]">Because every detail says something</h6>
+          <h6 className="font-[500] font-pan text-[52px] w-full leading-[1] uppercase text-[#2B3136] text-center pb-[44px]">Because every detail says something</h6>
           <div className="max-w-[1215px] w-full mx-auto">
             <div className="grid lg:grid-cols-4 grid-cols-1 lg:gap-[25px] gap-[20px]">
               {shop?.map((e, i) => {
@@ -347,7 +404,7 @@ export default function Home() {
         </div>
       </section>
       <section className="py-[62px]">
-        <div className="max-w-[1671px] w-full mx-auto">
+        <div className="max-w-[1440px] w-full mx-auto lg:px-[60px] px-[30px]">
           <div className="grid lg:grid-cols-4 grid-cols-1">
             <div className="max-w-[216px] w-full">
               <Image src="/assets/shop/icon1.png" height={28} width={28} alt="gold" className="h-[28px] w-[28px] object-cover" />
@@ -372,27 +429,64 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="bg-[#966846] lg:pt-[80px] pt-[50px] lg:px-[60px] px-[20px] lg:pb-[120px] pb-[80px]">
-        <div className="lg:pb-[120px] pb-[60px]">
-          <p className="font-[700] font-goudy text-[14px] leading-[1] text-white pb-[24px]">FOLLOW US ON</p>
-          <h6 className="font-[700] font-pan text-[100px] leading-[120px] tracking-[2%] text-[#FFFFFF] pb-[27px]">INSTAGRAM</h6>
-          <h6 className="font-[700] font-pan text-[12px] leading-[1] text-[#FFFFFF]">Go follow @almajewellery</h6>
+      <section className="bg-[#966846] pt-[40px] lg:pt-[80px] px-[16px] sm:px-[24px] lg:px-[60px] pb-[60px] lg:pb-[80px]">
+
+        <div className="pb-[40px] lg:pb-[60px] text-center lg:text-left">
+
+          <p className="font-[700] font-goudy text-[12px] sm:text-[13px] lg:text-[14px] leading-[1] text-white pb-[16px] lg:pb-[24px]">
+            FOLLOW US ON
+          </p>
+
+          <h6
+            className="
+        font-[700] font-pan text-white
+        text-[36px] md:text-[50px] lg:text-[62px] xl:text-[84px]
+        leading-[1.1] tracking-[0.02em]
+        pb-[16px] lg:pb-[27px]
+      "
+          >
+            INSTAGRAM
+          </h6>
+
+          <h6 className="font-[700] font-pan text-[11px] sm:text-[12px] leading-[1] text-white">
+            Go follow @almajewellery
+          </h6>
+
         </div>
-        <div className="grid lg:grid-cols-4 grid-cols-1">
-          <div>
-            <Image src="/assets/shop/item1.png" height={462} width={420} alt="gold" className="h-[462px] w-full object-cover" />
-          </div>
-          <div>
-            <Image src="/assets/shop/item2.png" height={462} width={420} alt="gold" className="h-[462px] w-full object-cover" />
-          </div>
-          <div>
-            <Image src="/assets/shop/item3.png" height={462} width={420} alt="gold" className="h-[462px] w-full object-cover" />
-          </div>
-          <div>
-            <Image src="/assets/shop/item4.png" height={462} width={420} alt="gold" className="h-[462px] w-full object-cover" />
-          </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+          <Image
+            src="/assets/shop/item1.png"
+            height={462}
+            width={420}
+            alt="gold"
+            className="h-[260px] sm:h-[320px] lg:h-[420px] w-full object-cover"
+          />
+          <Image
+            src="/assets/shop/item2.png"
+            height={462}
+            width={420}
+            alt="gold"
+            className="h-[260px] sm:h-[320px] lg:h-[420px] w-full object-cover"
+          />
+          <Image
+            src="/assets/shop/item3.png"
+            height={462}
+            width={420}
+            alt="gold"
+            className="h-[260px] sm:h-[320px] lg:h-[420px] w-full object-cover"
+          />
+          <Image
+            src="/assets/shop/item4.png"
+            height={462}
+            width={420}
+            alt="gold"
+            className="h-[260px] sm:h-[320px] lg:h-[420px] w-full object-cover"
+          />
         </div>
+
       </section>
+
     </div>
   );
 }

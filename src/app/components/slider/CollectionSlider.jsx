@@ -101,7 +101,7 @@ function CollectionSlider() {
                                 className="rounded-[16px] h-[302px] lg:max-w-full max-w-[335px] w-full object-cover"
                                 alt=""
                             />
-                            <p className="font-[700] lg:text-[32px] text-[24px] leading-[100%] text-[#2B3136] font-goudy lg:pt-[56px] pt-[30px]">
+                            <p className="font-[700] lg:text-[22px] text-[18px] leading-[100%] text-[#2B3136] font-goudy lg:pt-[26px] pt-[16px]">
                                 {e?.name}
                             </p>
                         </div>

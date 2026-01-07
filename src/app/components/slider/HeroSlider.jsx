@@ -44,7 +44,7 @@ export default function HeroSlider() {
                 absolute left-[20px] md:left-[40px] lg:left-[60px]
                 top-[40px] lg:top-[103px]
                 leading-[95%]
-                text-[42px] md:text-[72px] lg:text-[122px]
+                text-[42px] lg:text-[100px] 2xl:text-[122px]
                 max-w-[300px] md:max-w-[450px] lg:max-w-[566px]
               "
                         >
