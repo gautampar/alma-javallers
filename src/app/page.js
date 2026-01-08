@@ -122,7 +122,7 @@ export default function Home() {
             <h6
               className="
           font-pan font-[500] uppercase text-[#2B3136] leading-[100%]
-          text-[32px] md:text-[48px] lg:text-[50px]
+          text-[24px] md:text-[48px] lg:text-[50px]
         "
             >
               Crafted with Culture
@@ -175,7 +175,7 @@ export default function Home() {
             <h6
               className="
           font-pan font-[500] uppercase text-[#2B3136] leading-[100%]
-          text-[32px] md:text-[48px] lg:text-[50px]
+          text-[24px] md:text-[48px] lg:text-[50px]
         "
             >
               CURATED JUST FOR YOU
@@ -346,55 +346,79 @@ export default function Home() {
 
       <section className="bg-[#966846] py-[80px] ">
         <div className="lg:px-[60px] px-[20px]">
-          <p className="uppercase font-[700] font-goudy text-[35px] leading-[100%] text-[#FFFFFF] pb-[12px] ">Alma Essentials </p>
-          <h6 className="font-[700] font-pan text-[35px] leading-[100%] text-[#FFFFFF] uppercase pb-[42px]">Chandbali Radiance</h6>
+          <p className="uppercase font-[700] font-goudy lg:text-[35px] md:text-[28px] text-[20px]  leading-[100%] text-[#FFFFFF] pb-[12px] ">Alma Essentials </p>
+          <h6 className="font-[700] font-pan lg:text-[35px] md:text-[28px] text-[24px] leading-[100%] text-[#FFFFFF] uppercase pb-[42px]">Chandbali Radiance</h6>
         </div>
         <div className="lg:pl-[60px] lg:pr-0 px-[20px] relative overflow-hidden">
           <Alma1Slider />
         </div>
       </section>
-      <section className="bg-[#966846] py-[80px] mt-[102px]">
-        <div className="lg:px-[60px] px-[20px]">
-          <p className="uppercase font-[700] font-goudy text-[35px] leading-[100%] text-[#FFFFFF] pb-[12px] ">Har Banna  ji Ka Style,  </p>
-          <h6 className="font-[700] font-pan text-[35px] leading-[100%] text-[#FFFFFF] uppercase pb-[42px]">Ab Ek Click Door</h6>
+      <section className="bg-[#966846] lg:py-[80px] md:py-[60px] py-[40px] lg:mt-[102px] md:mt-[80px] mt-[40px]">
+        <div className="lg:px-[60px] md:px-[40px] px-[20px]">
+          <p className="uppercase font-[700] font-goudy lg:text-[35px] md:text-[28px] text-[20px] leading-[100%] text-[#FFFFFF] pb-[12px]">
+            Har Banna ji Ka Style,
+          </p>
+          <h6 className="font-[700] font-pan lg:text-[35px] md:text-[28px] text-[24px] leading-[100%] text-[#FFFFFF] uppercase pb-[42px]">
+            Ab Ek Click Door
+          </h6>
         </div>
-        <div className="lg:pl-[60px] lg:pr-0 px-[20px] relative overflow-hidden">
+
+        <div className="lg:pl-[60px] lg:pr-0 md:pl-[40px] md:pr-0 px-[20px] relative overflow-hidden">
           <Alma2Slider />
         </div>
       </section>
-      <section className="lg:pt-[180px] pt-[100px]">
-        <div className="max-w-[1540px] w-full mx-auto">
-          <p className="font-[700] font-goudy text-[28px] leading-[1] text-[#2B3136] text-center pb-[12px]">SHOP BY COLOR</p>
-          <h6 className="font-[500] font-pan text-[52px] w-full leading-[1] uppercase text-[#2B3136] text-center pb-[44px]">Because every detail says something</h6>
+
+      <section className="lg:pt-[180px] md:pt-[140px] pt-[100px]">
+        <div className="max-w-[1540px] w-full mx-auto px-[20px] md:px-[40px]">
+          <p className="font-[700] font-goudy lg:text-[28px] md:text-[24px] text-[20px] leading-[1] text-[#2B3136] text-center pb-[12px]">
+            SHOP BY COLOR
+          </p>
+          <h6 className="font-[500] font-pan lg:text-[52px] md:text-[40px] text-[24px] w-full leading-[1] uppercase text-[#2B3136] text-center pb-[44px]">
+            Because every detail says something
+          </h6>
+
           <div className="max-w-[1215px] w-full mx-auto">
-            <div className="grid lg:grid-cols-4 grid-cols-1 lg:gap-[25px] gap-[20px]">
-              {shop?.map((e, i) => {
-                return (
-                  <div key={i}>
-                    <div className="relative">
-                      <div className="absolute bottom-[-22px] left-1/2 -translate-x-1/2">
-                        <Image src={e?.colors} height={46} width={49} alt="colors" className="h-[46px] w-[49px] object-cover" />
-                      </div>
-                      <Image src={e?.imgs} height={339} width={285} alt="gold" className="h-[339px] w-full object-cover" />
+            <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 lg:gap-[25px] md:gap-[20px] gap-[20px]">
+              {shop?.map((e, i) => (
+                <div key={i}>
+                  <div className="relative">
+                    <div className="absolute bottom-[-22px] left-1/2 -translate-x-1/2">
+                      <Image
+                        src={e?.colors}
+                        height={46}
+                        width={49}
+                        alt="colors"
+                        className="h-[46px] w-[49px] object-cover"
+                      />
                     </div>
-                    <h6 className="font-[700] font-goudy text-[32px] leading-[1] text-[#2B3136] text-center pt-[30px] pb-[16px]">{e?.name}</h6>
+                    <Image
+                      src={e?.imgs}
+                      height={339}
+                      width={285}
+                      alt="gold"
+                      className="h-auto w-full md:h-[300px] sm:h-[250px] object-cover"
+                    />
                   </div>
-                )
-              })}
+                  <h6 className="font-[700] font-goudy lg:text-[32px] md:text-[28px] text-[24px] leading-[1] text-[#2B3136] text-center pt-[30px] pb-[16px]">
+                    {e?.name}
+                  </h6>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
+
       <section className="lg:py-[101px] py-[80px] border-b border-[#D9D9D9]">
         <div className="max-w-[1540px] w-full mx-auto">
-          <p className="font-[700] font-goudy text-[28px] leading-[1] text-[#2B3136] text-center pb-[12px]">GIFTS FOR YOUR LOVED ONES</p>
-          <h6 className="font-[500] font-pan text-[42px] w-full leading-[1] uppercase text-[#2B3136] text-center pb-[44px]">SHOW LOVE THROUGH TIMELESS PIECES</h6>
+          <p className="font-[700] font-goudy lg:text-[28px] text-[20px] leading-[1] text-[#2B3136] text-center pb-[12px]">GIFTS FOR YOUR LOVED ONES</p>
+          <h6 className="font-[500] font-pan lg:text-[42px] md:text-[34px] text-[28px] w-full leading-[1] uppercase text-[#2B3136] text-center pb-[44px]">SHOW LOVE THROUGH TIMELESS PIECES</h6>
           <div className="max-w-[1215px] w-full mx-auto">
             <div className="grid lg:grid-cols-6 grid-cols-1 lg:gap-[20px] gap-[16px]">
               {loved?.map((e, i) => {
                 return (
                   <div key={i}>
-                    <Image src={e?.imgs} height={248} width={214} alt="gold" className="h-[248px] w-full object-cover" />
+                    <Image src={e?.imgs} height={248} width={214} alt="gold" className="lg:h-[248px] h-auto w-full object-cover" />
                     <h6 className="font-[700] font-goudy text-[16px] leading-[1] text-[#2B3136] text-center pt-[16px]">{e?.name}</h6>
                   </div>
                 )
@@ -405,7 +429,7 @@ export default function Home() {
       </section>
       <section className="py-[62px]">
         <div className="max-w-[1440px] w-full mx-auto lg:px-[60px] px-[30px]">
-          <div className="grid lg:grid-cols-4 grid-cols-1">
+          <div className="grid lg:grid-cols-4 grid-cols-1 lg:gap-0 gap-[30px]">
             <div className="max-w-[216px] w-full">
               <Image src="/assets/shop/icon1.png" height={28} width={28} alt="gold" className="h-[28px] w-[28px] object-cover" />
               <h6 className="font-pan font-[700] text-[15px] leading-[125%] tracking-[1%] text-[#2B3136] uppercase py-[12px]">DELIVERY </h6>
@@ -460,28 +484,28 @@ export default function Home() {
             height={462}
             width={420}
             alt="gold"
-            className="h-[260px] sm:h-[320px] lg:h-[420px] w-full object-cover"
+            className="h-auto sm:h-[320px] lg:h-[420px] w-full object-cover"
           />
           <Image
             src="/assets/shop/item2.png"
             height={462}
             width={420}
             alt="gold"
-            className="h-[260px] sm:h-[320px] lg:h-[420px] w-full object-cover"
+            className="h-auto sm:h-[320px] lg:h-[420px] w-full object-cover"
           />
           <Image
             src="/assets/shop/item3.png"
             height={462}
             width={420}
             alt="gold"
-            className="h-[260px] sm:h-[320px] lg:h-[420px] w-full object-cover"
+            className="h-auto sm:h-[320px] lg:h-[420px] w-full object-cover"
           />
           <Image
             src="/assets/shop/item4.png"
             height={462}
             width={420}
             alt="gold"
-            className="h-[260px] sm:h-[320px] lg:h-[420px] w-full object-cover"
+            className="h-auto sm:h-[320px] lg:h-[420px] w-full object-cover"
           />
         </div>
 

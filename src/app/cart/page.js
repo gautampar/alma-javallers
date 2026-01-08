@@ -22,14 +22,14 @@ function Page() {
 
     return (
         <div >
-            <div className="bg-[#FFF9F2] pt-[264px]">
+            <div className="bg-[#FFF9F2] 2xl:pt-[264px] lg:pt-[200px] pt-[160px]">
                 <div className="lg:px-[164px] px-[20px]">
                     <div className="flex gap-[4px] items-center pb-[30px]">
                         <Image height={20} width={20} src="/assets/cart/arrow.svg" alt='arrow' />
                         <h6 className="font-pan-r text-[20px] leading-[100%] underline text-[#222222]">Continue Shopping</h6>
                     </div>
                     <h6 className="font-pan-b text-[45px] leading-[100%] text-[#A24112] pb-[26px]">Cart</h6>
-                    <div className="grid lg:grid-cols-2 grid-cols-1">
+                    <div className="grid lg:grid-cols-2 grid-cols-1 gap-[40px]">
                         <div className='lg:max-w-[658px] max-w-full w-full'>
                             <div className="p-[10px] flex justify-between items-center mb-[22px]">
                                 <p className="font-pan-r text-[20px] leading-[34px] tracking-[0.3px] text-[#000000]">8 Items Total</p>
@@ -183,17 +183,22 @@ function Page() {
                                     <input type="checkbox" />
                                 </div>
                                 <h6 className="font-nunito font-[600] text-[16px] leading-[100%] text-[#222222] underline">Add New</h6>
-                                <div className='border-t border-[#A2411280] mt-[20px] pt-[20px]'>
+                                <div className='border-t border-[#A2411280] mt-[20px] pt-[20px] overflow-hidden'>
                                     <div className="flex gap-[15px] items-center pb-[17px]">
                                         <Image src="/assets/cart/Tag.svg" alt="Tag" height={23} width={23} />
                                         <p className="font-nunito font-[600] text-[16px] leading-[100%] text-[#222222] underline">Enter a Gift Card or Promo Code</p>
                                     </div>
-                                    <div className="flex justify-between rounded-[10px] border-[0.2px] border-[#222222] bg-[#FFFFFF] pl-[28px]">
-                                        <input type="text" className='font-nunito text-[20px] font-[400] leading-[20px] text-[#000000] outline-none border-0' />
-                                        <button className='max-w-[100px] w-full bg-[#A24112] py-[12px] px-[22px] rounded-[10px] text-[#FFFFFF] font-nunito font-[600] text-[20px] text-center'>
+                                    <div className="flex flex-col sm:flex-row gap-2 sm:gap-0 rounded-[10px] border-[0.2px] border-[#222222] bg-[#FFFFFF] overflow-hidden">
+                                        <input
+                                            type="text"
+                                            className="flex-1 font-nunito text-[16px] sm:text-[20px] font-[400] leading-[20px] text-[#000000] outline-none border-0 px-4 py-3 sm:px-7 sm:py-4"
+                                            placeholder="Enter code"
+                                        />
+                                        <button className="sm:max-w-[100px] w-full sm:w-auto bg-[#A24112] py-3 sm:py-4 px-4 sm:px-6 rounded-[10px] text-[#FFFFFF] font-nunito font-[600] text-[16px] sm:text-[20px] text-center">
                                             Apply
                                         </button>
                                     </div>
+
                                     <div className='mt-[40px] flex items-center gap-[15px] mb-[27px]'>
                                         <input type="checkbox" className='h-[20px] w-[20px]' />
                                         <p className="font-[400] font-nunito text-[15px] leading-[100%] text-[#222222]">Include Gift Wrapping for this order</p>
@@ -207,49 +212,69 @@ function Page() {
                             </div>
                         </div>
                     </div>
-                    <div className='pt-[90px]'>
-                        <div className='pb-[55px] flex justify-between items-center'>
+                    <div className="pt-[40px] sm:pt-[90px] px-4 sm:px-6 lg:px-0">
+                        <div className="pb-[0px] sm:pb-[55px] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 sm:gap-0">
                             <div>
-                                <h6 className="font-[500] font-pan text-[32px] leading-[140%] text-[#2B3136]">
+                                <h6 className="font-[500] font-pan text-[24px] sm:text-[32px] leading-[140%] text-[#2B3136]">
                                     Recommended For you
                                 </h6>
-                                <div className="h-[4px] max-w-[88px] bg-[#2B3136] rounded-full"></div>
+                                <div className="h-[4px] max-w-[60px] sm:max-w-[88px] bg-[#2B3136] rounded-full mt-2"></div>
                             </div>
-                            <button className='font-pan-r text-[28px] leading-[140%] text-[#2B3136]'>View All</button>
+                            <button className="font-pan-r text-[18px] sm:text-[28px] leading-[140%] text-[#2B3136] self-start sm:self-auto">
+                                View All
+                            </button>
                         </div>
-                        <div className="overflow-hidden pb-[80px] ">
+                        <div className="overflow-x-auto pb-[60px] sm:pb-[80px] -mx-4 sm:mx-0">
                             <RingSlider />
                         </div>
                     </div>
+
                 </div>
             </div>
             {openModal && (
-                <div className="fixed inset-0 z-100 flex items-center justify-center bg-black/50">
-                    <div className="bg-white rounded-[10px] relative w-full max-w-[496px] px-[53px] pt-[54px] pb-[88px]">
-                        <button className='absolute right-[20px] cursor-pointer top-[20px]' onClick={() => setOpenModal(false)}>
-                            <Image src="/assets/cart/modal-close.svg" height={30} width={30} alt='close' />
+                <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 px-4">
+                    <div className="bg-white rounded-[10px] relative w-full max-w-[480px] sm:max-w-[420px] md:max-w-[480px] 
+      px-[20px] sm:px-[32px] md:px-[40px] lg:px-[50px]
+      pt-[40px] sm:pt-[45px] md:pt-[50px]
+      pb-[60px] sm:pb-[70px] md:pb-[80px]
+    ">
+
+                        <button
+                            className="absolute right-[15px] sm:right-[18px] md:right-[20px] top-[15px] sm:top-[18px] md:top-[20px] cursor-pointer"
+                            onClick={() => setOpenModal(false)}
+                        >
+                            <Image src="/assets/cart/modal-close.svg" height={28} width={28} alt="close" />
                         </button>
-                        <h4 className="font-nunito font-[700] text-[30px] leading-[100%] text-[#222222] text-center pb-[11px]">
+                        <h4 className="font-nunito font-[700] text-[22px] sm:text-[26px] md:text-[30px] leading-[120%] text-[#222222] text-center pb-[10px] sm:pb-[12px]">
                             Items
                         </h4>
 
-                        <p className="text-[#22222280] max-w-[280px] w-full mx-auto pt-[12px] pb-[34px] font-[500] font-nunito text-[18px] leading-[100%] text-center">
+                        {/* Subtext */}
+                        <p className="text-[#22222280] mx-auto text-center font-nunito font-[500]
+        text-[15px] sm:text-[16px] md:text-[18px]
+        leading-[140%] sm:leading-[130%]
+        max-w-[260px] sm:max-w-[280px] pb-[20px] sm:pb-[28px] md:pb-[34px] pt-[8px] sm:pt-[10px]
+      ">
                             Are you sure you want to remove all or move to wishlist?
                         </p>
 
-                        <div className="flex gap-[14px] justify-center">
+                        {/* Buttons */}
+                        <div className="flex flex-col sm:flex-row gap-[10px] sm:gap-[12px] justify-center">
                             <button
                                 onClick={() => setOpenModal(false)}
-                                className="bg-[#A2411233] py-[12px] text-[#A24112] font-[500] font-nunito text-[20px] leading-[100%] rounded-[5px] w-full text-center"
+                                className="bg-[#A2411233] py-[10px] sm:py-[12px]
+            text-[#A24112] font-[500] font-nunito 
+            text-[16px] sm:text-[18px] md:text-[20px] leading-[100%]
+            rounded-[5px] w-full text-center"
                             >
                                 Remove All
                             </button>
 
                             <button
-                                onClick={() => {
-                                    setOpenModal(false);
-                                }}
-                                className="py-[12px] bg-[#A24112] text-white  font-[500] font-nunito text-[20px] leading-[100%] rounded-[5px] w-full text-center"
+                                onClick={() => setOpenModal(false)}
+                                className="py-[10px] sm:py-[12px] bg-[#A24112] text-white font-[500] font-nunito
+            text-[16px] sm:text-[18px] md:text-[20px] leading-[100%]
+            rounded-[5px] w-full text-center"
                             >
                                 Move to Wishlist
                             </button>
@@ -258,157 +283,143 @@ function Page() {
                     </div>
                 </div>
             )}
+
             {openCheckoutModal && (
-                <div className="fixed inset-0 z-100 flex items-center justify-center bg-black/50">
-                    <div className="bg-white w-full max-w-[855px] rounded-[10px] p-[24px] relative">
+                <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 p-4">
+                    <div className="bg-white w-full max-w-[855px] rounded-[10px] p-[24px] relative max-h-[90vh] overflow-y-auto">
                         <button
                             onClick={() => setOpenCheckoutModal(false)}
                             className="absolute top-[12px] right-[12px]"
                         >
-                            <Image src="/assets/cart/modal-close.svg" height={30} width={30} alt='close' />
+                            <Image src="/assets/cart/modal-close.svg" height={30} width={30} alt="close" />
                         </button>
 
-                        <h4 className="font-pan-b text-[22px] leading-[33.5px] text-[#3C4242] mb-[32px]">
+                        <h4 className="font-pan-b text-[20px] sm:text-[22px] leading-[1.4] text-[#3C4242] mb-[24px] pt-[10px]">
                             Billing Details
                         </h4>
 
-                        <form className="grid grid-cols-1 lg:grid-cols-2 gap-[20px] lg:gap-[20px]">
+                        <form className="grid grid-cols-1 lg:grid-cols-2 gap-[20px]">
 
                             {/* First Name */}
-                            <div className="grid gap-[13px]">
-                                <p className="font-pan-b text-[16px] text-[#3C4242]">First Name*</p>
+                            <div className="grid gap-[10px]">
+                                <label className="font-pan-b text-[14px] sm:text-[16px] text-[#3C4242]">First Name*</label>
                                 <input
                                     type="text"
                                     placeholder="First Name"
-                                    className="border border-[#DDDCDC] rounded-[8px] px-[20px] py-[16px]
-      font-pan-r text-[14px] placeholder:text-[#DDDCDC] text-[#3C4242] focus:outline-none"
+                                    className="border border-[#DDDCDC] rounded-[8px] px-[16px] py-[14px] text-[14px] text-[#3C4242] placeholder:text-[#9c9c9c] focus:outline-none"
                                 />
                             </div>
 
                             {/* Last Name */}
-                            <div className="grid gap-[13px]">
-                                <p className="font-pan-b text-[16px] text-[#3C4242]">Last Name*</p>
+                            <div className="grid gap-[10px]">
+                                <label className="font-pan-b text-[14px] sm:text-[16px] text-[#3C4242]">Last Name*</label>
                                 <input
                                     type="text"
                                     placeholder="Last Name"
-                                    className="border border-[#DDDCDC] rounded-[8px] px-[20px] py-[16px]
-      font-pan-r text-[14px] placeholder:text-[#DDDCDC] text-[#3C4242] focus:outline-none"
+                                    className="border border-[#DDDCDC] rounded-[8px] px-[16px] py-[14px] text-[14px] text-[#3C4242] placeholder:text-[#9c9c9c] focus:outline-none"
                                 />
                             </div>
 
-                            {/* Country / Region */}
-                            <div className="grid gap-[13px]">
-                                <p className="font-pan-b text-[16px] text-[#3C4242]">Country / Region*</p>
+                            {/* Country */}
+                            <div className="grid gap-[10px]">
+                                <label className="font-pan-b text-[14px] sm:text-[16px] text-[#3C4242]">Country / Region*</label>
                                 <input
                                     type="text"
                                     placeholder="Country"
-                                    className="border border-[#DDDCDC] rounded-[8px] px-[20px] py-[16px]
-      font-pan-r text-[14px] placeholder:text-[#DDDCDC] text-[#3C4242] focus:outline-none"
+                                    className="border border-[#DDDCDC] rounded-[8px] px-[16px] py-[14px] text-[14px] text-[#3C4242] placeholder:text-[#9c9c9c] focus:outline-none"
                                 />
                             </div>
 
                             {/* Email */}
-                            <div className="grid gap-[13px]">
-                                <p className="font-pan-b text-[16px] text-[#3C4242]">Email</p>
+                            <div className="grid gap-[10px]">
+                                <label className="font-pan-b text-[14px] sm:text-[16px] text-[#3C4242]">Email</label>
                                 <input
                                     type="email"
                                     placeholder="Email Address"
-                                    className="border border-[#DDDCDC] rounded-[8px] px-[20px] py-[16px]
-      font-pan-r text-[14px] placeholder:text-[#DDDCDC] text-[#3C4242] focus:outline-none"
+                                    className="border border-[#DDDCDC] rounded-[8px] px-[16px] py-[14px] text-[14px] text-[#3C4242] placeholder:text-[#9c9c9c] focus:outline-none"
                                 />
                             </div>
 
-                            {/* Street Address (full width) */}
-                            <div className="grid gap-[13px] lg:col-span-2">
-                                <p className="font-pan-b text-[16px] text-[#3C4242]">Street Address*</p>
+                            {/* Street Address */}
+                            <div className="grid gap-[10px] lg:col-span-2">
+                                <label className="font-pan-b text-[14px] sm:text-[16px] text-[#3C4242]">Street Address*</label>
                                 <input
                                     type="text"
                                     placeholder="House number and street name"
-                                    className="border border-[#DDDCDC] rounded-[8px] px-[20px] py-[16px]
-      font-pan-r text-[14px] placeholder:text-[#DDDCDC] text-[#3C4242] focus:outline-none"
+                                    className="border border-[#DDDCDC] rounded-[8px] px-[16px] py-[14px] text-[14px] text-[#3C4242] placeholder:text-[#9c9c9c] focus:outline-none"
                                 />
                             </div>
 
-                            {/* Apt / Suite */}
-                            <div className="grid gap-[13px] lg:col-span-2">
-                                <p className="font-pan-b text-[16px] text-[#3C4242]">Apt, suite, unit</p>
+                            {/* Apt */}
+                            <div className="grid gap-[10px] lg:col-span-2">
+                                <label className="font-pan-b text-[14px] sm:text-[16px] text-[#3C4242]">Apt, suite, unit</label>
                                 <input
                                     type="text"
                                     placeholder="Apartment, suite, unit, etc. (optional)"
-                                    className="border border-[#DDDCDC] rounded-[8px] px-[20px] py-[16px]
-      font-pan-r text-[14px] placeholder:text-[#DDDCDC] text-[#3C4242] focus:outline-none"
+                                    className="border border-[#DDDCDC] rounded-[8px] px-[16px] py-[14px] text-[14px] text-[#3C4242] placeholder:text-[#9c9c9c] focus:outline-none"
                                 />
                             </div>
 
-                            {/* City / State / Postal Code */}
-                            <div className="lg:col-span-2 grid grid-cols-1 lg:grid-cols-3 gap-[20px]">
-
-                                <div className="grid gap-[13px]">
-                                    <p className="font-pan-b text-[16px] text-[#3C4242]">City*</p>
+                            {/* City / State / Postal */}
+                            <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-3 gap-[20px]">
+                                <div className="grid gap-[10px]">
+                                    <label className="font-pan-b text-[14px] sm:text-[16px] text-[#3C4242]">City*</label>
                                     <input
                                         type="text"
                                         placeholder="City"
-                                        className="border border-[#DDDCDC] rounded-[8px] px-[20px] py-[16px]
-        font-pan-r text-[14px] placeholder:text-[#DDDCDC] text-[#3C4242] focus:outline-none"
+                                        className="border border-[#DDDCDC] rounded-[8px] px-[16px] py-[14px] text-[14px] text-[#3C4242] placeholder:text-[#9c9c9c] focus:outline-none"
                                     />
                                 </div>
 
-                                <div className="grid gap-[13px]">
-                                    <p className="font-pan-b text-[16px] text-[#3C4242]">State*</p>
+                                <div className="grid gap-[10px]">
+                                    <label className="font-pan-b text-[14px] sm:text-[16px] text-[#3C4242]">State*</label>
                                     <input
                                         type="text"
                                         placeholder="State"
-                                        className="border border-[#DDDCDC] rounded-[8px] px-[20px] py-[16px]
-        font-pan-r text-[14px] placeholder:text-[#DDDCDC] text-[#3C4242] focus:outline-none"
+                                        className="border border-[#DDDCDC] rounded-[8px] px-[16px] py-[14px] text-[14px] text-[#3C4242] placeholder:text-[#9c9c9c] focus:outline-none"
                                     />
                                 </div>
 
-                                <div className="grid gap-[13px]">
-                                    <p className="font-pan-b text-[16px] text-[#3C4242]">Postal Code*</p>
+                                <div className="grid gap-[10px]">
+                                    <label className="font-pan-b text-[14px] sm:text-[16px] text-[#3C4242]">Postal Code*</label>
                                     <input
                                         type="text"
                                         placeholder="Postal Code"
-                                        className="border border-[#DDDCDC] rounded-[8px] px-[20px] py-[16px]
-        font-pan-r text-[14px] placeholder:text-[#DDDCDC] text-[#3C4242] focus:outline-none"
+                                        className="border border-[#DDDCDC] rounded-[8px] px-[16px] py-[14px] text-[14px] text-[#3C4242] placeholder:text-[#9c9c9c] focus:outline-none"
                                     />
                                 </div>
-
                             </div>
 
                             {/* Phone */}
-                            <div className="grid gap-[13px]">
-                                <p className="font-pan-b text-[16px] text-[#3C4242]">Phone*</p>
+                            <div className="grid gap-[10px]">
+                                <label className="font-pan-b text-[14px] sm:text-[16px] text-[#3C4242]">Phone*</label>
                                 <input
                                     type="tel"
                                     placeholder="Phone Number"
-                                    className="border border-[#DDDCDC] rounded-[8px] px-[20px] py-[16px]
-      font-pan-r text-[14px] placeholder:text-[#DDDCDC] text-[#3C4242] focus:outline-none"
+                                    className="border border-[#DDDCDC] rounded-[8px] px-[16px] py-[14px] text-[14px] text-[#3C4242] placeholder:text-[#9c9c9c] focus:outline-none"
                                 />
                             </div>
 
-                            <div className="lg:col-span-2">
-                                <div className='grid lg:grid-cols-2 grid-cols-1'>
-                                    <div>
-                                        <button
-                                            type="submit"
-                                            className="bg-[#A24112] text-white py-[14px] rounded-[8px] px-[20px]
-      font-pan-r text-[18px] transition-all duration-300 hover:bg-[#8d3510]"
-                                        >
-                                            Add Address
-                                        </button>
-                                    </div>
-                                    <div className='flex items-center gap-[10px]'>
-                                        <input type="checkbox" name="" id="" />
-                                        <p className="font-pan-r text-[18px] leading-[100%] text-[#3C4242]">Save my information for a faster checkout</p>
-                                    </div>
-                                </div>
+                            {/* Button + Checkbox */}
+                            <div className="lg:col-span-2 flex flex-col sm:flex-row items-start sm:items-center gap-[16px] pt-[10px]">
+                                <button
+                                    type="submit"
+                                    className="bg-[#A24112] text-white py-[14px] rounded-[8px] px-[24px] text-[16px] hover:bg-[#8d3510] transition-all duration-300"
+                                >
+                                    Add Address
+                                </button>
+
+                                <label className="flex items-center gap-[10px] cursor-pointer">
+                                    <input type="checkbox" />
+                                    <span className="text-[15px] sm:text-[16px] text-[#3C4242]">Save my information for a faster checkout</span>
+                                </label>
                             </div>
 
                         </form>
-
                     </div>
                 </div>
             )}
+
 
         </div>
     )

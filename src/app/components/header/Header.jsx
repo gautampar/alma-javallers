@@ -39,7 +39,7 @@ const menu = [
   },
   { name: "Best-Sellers", path: "/solutions" },
   { name: "Silver", path: "/clients" },
-  { name: "Earrings", path: "/blog" },
+  { name: "Earrings", path: "/earrings" },
   { name: "Rings", path: "/career" },
   { name: "Women", path: "/contact-us" },
   { name: "Men", path: "/contact-us" },

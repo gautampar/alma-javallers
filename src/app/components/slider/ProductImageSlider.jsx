@@ -26,9 +26,8 @@ const ProductImageGallery = () => {
     });
 
     return (
-        <div className="flex gap-[16px]">
-            {/* LEFT THUMBNAILS */}
-            <div className="flex flex-col gap-[12px]">
+        <div className="flex gap-[16px] flex-col-reverse lg:flex-row">
+            <div className="flex lg:flex-col flex-row gap-[12px]">
                 {images.map((img, index) => (
                     <button
                         key={index}
@@ -43,13 +42,13 @@ const ProductImageGallery = () => {
                             alt="thumb"
                             width={140}
                             height={158}
-                            className="w-[140px] h-[158px] object-cover rounded-[8px]"
+                            className="2xl:w-[140px] 2xl:h-[158px] w-auto h-auto object-cover rounded-[8px]"
                         />
                     </button>
                 ))}
             </div>
 
-            <div className="relative w-full max-w-[640px]">
+            <div className="relative w-full md:max-w-[75%]">
                 <div
                     ref={sliderRef}
                     className="keen-slider rounded-[20px] overflow-hidden"
@@ -81,7 +80,7 @@ const ProductImageGallery = () => {
                                     width={640}
                                     src={img}
                                     alt=""
-                                    className="rounded-[20px] h-[678px] w-full object-cover"
+                                    className="rounded-[20px] 2xl:h-[678px] md:h-auto w-full object-cover"
                                 />
                             </div>
                         </div>
