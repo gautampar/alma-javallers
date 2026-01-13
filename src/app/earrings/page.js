@@ -7,6 +7,7 @@ import CategoryDropdown from '../components/filter/CategoryDropdown';
 import GiftForLovedOnesDropdown from '../components/filter/GiftForLovedOnesDropdown';
 import ColorDropdown from '../components/filter/ColorDropdown';
 import GenderDropdown from '../components/filter/GenderDropdown';
+import Link from 'next/link';
 
 const categories = [
     "NEW ARRIVALS",
@@ -100,45 +101,47 @@ function Page() {
                                 {/* Product Grid - Fully Responsive */}
                                 <div className="mt-4 sm:mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-x-[12px] sm:gap-x-[16px] gap-y-[20px] sm:gap-y-[24px] lg:gap-y-[32px] xl:gap-y-[48px]">
                                     {productsToShow.map((e, i) => (
-                                        <div key={i} className="border border-[#DDDCDC] px-[6px] sm:px-[8px] md:px-[12px] lg:px-[16px] pt-[8px] sm:pt-[11px] pb-[20px] sm:pb-[24px] lg:pb-[33px] min-h-[300px] sm:min-h-[340px] lg:min-h-[360px] flex flex-col bg-white hover:shadow-lg transition-shadow">
+                                        <Link key={i} href={`/earrings/${e?.id}`}>
+                                            <div className="border border-[#DDDCDC] px-[6px] sm:px-[8px] md:px-[12px] lg:px-[16px] pt-[8px] sm:pt-[11px] pb-[20px] sm:pb-[24px] lg:pb-[33px] min-h-[300px] sm:min-h-[340px] lg:min-h-[360px] flex flex-col bg-white hover:shadow-lg transition-shadow">
 
-                                            <div className="flex items-center justify-between pb-[12px] sm:pb-[16px] lg:pb-[20px]">
-                                                <button className="bg-[#A24112] rounded-[4px] sm:rounded-[5px] py-[4px] sm:py-[6px] px-[6px] sm:px-[8px] lg:px-[10px] text-white text-[8px] sm:text-[9px] lg:text-[10px] font-bold">
-                                                    {e.off}
-                                                </button>
-                                                <div className="like-btn w-[20px] h-[20px] sm:w-[24px] sm:h-[24px]" />
+                                                <div className="flex items-center justify-between pb-[12px] sm:pb-[16px] lg:pb-[20px]">
+                                                    <button className="bg-[#A24112] rounded-[4px] sm:rounded-[5px] py-[4px] sm:py-[6px] px-[6px] sm:px-[8px] lg:px-[10px] text-white text-[8px] sm:text-[9px] lg:text-[10px] font-bold">
+                                                        {e.off}
+                                                    </button>
+                                                    <div className="like-btn w-[20px] h-[20px] sm:w-[24px] sm:h-[24px]" />
+                                                </div>
+
+                                                <div className="h-[240px] sm:h-[180px] md:h-[200px] lg:h-[225px] w-full flex justify-center items-center">
+                                                    <Image
+                                                        height={225}
+                                                        width={204}
+                                                        alt="ring"
+                                                        className="h-full w-auto object-contain"
+                                                        src={e.imgs}
+                                                    />
+                                                </div>
+
+                                                <h6 className="font-[700] font-goudy text-[13px] sm:text-[15px] md:text-[16px] lg:text-[18px] pb-[2px] sm:pb-[4px] mt-[8px] sm:mt-[10px] line-clamp-1">
+                                                    {e.name}
+                                                </h6>
+                                                <p className="font-[500] font-goudy text-[12px] sm:text-[13px] md:text-[14px] italic pb-[8px] sm:pb-[12px]">
+                                                    {e.price}
+                                                </p>
+
+                                                <div className="flex items-center gap-[12px] sm:gap-[16px] lg:gap-[20px] mt-auto">
+                                                    <Image
+                                                        height={28}
+                                                        width={36}
+                                                        src="/assets/home/cart.svg"
+                                                        className="cursor-pointer w-[28px] sm:w-[32px] lg:w-[41px] h-auto"
+                                                        alt="Cart"
+                                                    />
+                                                    <button className="btn-buy cursor-pointer text-[10px] sm:text-[11px] md:text-[12px] lg:text-[13px] px-2 sm:px-3 py-1 sm:py-[6px] whitespace-nowrap">
+                                                        Buy Now
+                                                    </button>
+                                                </div>
                                             </div>
-
-                                            <div className="h-[240px] sm:h-[180px] md:h-[200px] lg:h-[225px] w-full flex justify-center items-center">
-                                                <Image
-                                                    height={225}
-                                                    width={204}
-                                                    alt="ring"
-                                                    className="h-full w-auto object-contain"
-                                                    src={e.imgs}
-                                                />
-                                            </div>
-
-                                            <h6 className="font-[700] font-goudy text-[13px] sm:text-[15px] md:text-[16px] lg:text-[18px] pb-[2px] sm:pb-[4px] mt-[8px] sm:mt-[10px] line-clamp-1">
-                                                {e.name}
-                                            </h6>
-                                            <p className="font-[500] font-goudy text-[12px] sm:text-[13px] md:text-[14px] italic pb-[8px] sm:pb-[12px]">
-                                                {e.price}
-                                            </p>
-
-                                            <div className="flex items-center gap-[12px] sm:gap-[16px] lg:gap-[20px] mt-auto">
-                                                <Image
-                                                    height={28}
-                                                    width={36}
-                                                    src="/assets/home/cart.svg"
-                                                    className="cursor-pointer w-[28px] sm:w-[32px] lg:w-[41px] h-auto"
-                                                    alt="Cart"
-                                                />
-                                                <button className="btn-buy cursor-pointer text-[10px] sm:text-[11px] md:text-[12px] lg:text-[13px] px-2 sm:px-3 py-1 sm:py-[6px] whitespace-nowrap">
-                                                    Buy Now
-                                                </button>
-                                            </div>
-                                        </div>
+                                        </Link>
                                     ))}
                                 </div>
 

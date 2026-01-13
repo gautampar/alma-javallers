@@ -34,7 +34,61 @@ function Page() {
                             </div>
                         </div>
                     </div>
-                    
+                    <div className='border-b border-[#E5E7EB] py-[40px] max-w-[543px] w-full'>
+                        <div className='grid lg:grid-cols-2 grid-cols-1 gap-[24px]'>
+                            <div>
+                                <h6 className="font-inter font-[500] text-[14px] leading-[20px] text-[#111827] pb-[8px]">Shipping address</h6>
+                                <p className="font-[400] font-inter text-[14px] leading-[20px] text-[#374151]">Kristin Watson</p>
+                                <p className="font-[400] font-inter text-[14px] leading-[20px] text-[#374151]">7363 Cynthia Pass</p>
+                                <p className="font-[400] font-inter text-[14px] leading-[20px] text-[#374151]">Toronto, ON N3Y 4H8</p>
+                            </div>
+                            <div>
+                                <h6 className="font-inter font-[500] text-[14px] leading-[20px] text-[#111827] pb-[8px]">Billing address</h6>
+                                <p className="font-[400] font-inter text-[14px] leading-[20px] text-[#374151]">Kristin Watson</p>
+                                <p className="font-[400] font-inter text-[14px] leading-[20px] text-[#374151]">7363 Cynthia Pass</p>
+                                <p className="font-[400] font-inter text-[14px] leading-[20px] text-[#374151]">Toronto, ON N3Y 4H8</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='border-b border-[#E5E7EB] py-[40px]'>
+                        <div className='grid lg:grid-cols-2 grid-cols-1 gap-[24px] max-w-[543px] w-full'>
+                            <div>
+                                <h6 className="font-inter font-[500] text-[14px] leading-[20px] text-[#111827] pb-[8px]">Payment method</h6>
+                                <p className="font-[400] font-inter text-[14px] leading-[20px] text-[#374151]">Credit card</p>
+                                <p className="font-[400] font-inter text-[14px] leading-[20px] text-[#374151]">Mastercard</p>
+                                <p className="font-[400] font-inter text-[14px] leading-[20px] text-[#374151]">••••••••1545</p>
+                            </div>
+                            <div>
+                                <h6 className="font-inter font-[500] text-[14px] leading-[20px] text-[#111827] pb-[8px]">Shipping method</h6>
+                                <p className="font-[400] font-inter text-[14px] leading-[20px] text-[#374151]">Blue Dart</p>
+                                <p className="font-[400] font-inter text-[14px] leading-[20px] text-[#374151]">Takes up to 3 working days</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='py-[40px]'>
+                        <div className="grid gap-[22px]">
+                            <div className="flex justify-between items-center">
+                                <h6 className="font-pan-b text-[14px] leading-[20px]">Subtotal</h6>
+                                <h6 className="font-pan-b text-[14px] leading-[20px]">₹145</h6>
+                            </div>
+                            <div className="flex justify-between items-center">
+                                <div className="flex items-center gap-[8px]">
+                                    <h6 className="font-pan-b text-[14px] leading-[20px]">Discount</h6>
+                                    <button className='bg-[#E5E7EB] font-pan-b text-[12px] leading-[16px] text-[#A24112] py-[2px] px-[8px] rounded-full'>STUDENT50</button>
+                                </div>
+                                <h6 className="font-pan-b text-[14px] leading-[20px]">₹145</h6>
+                            </div>
+                            <div className="flex justify-between items-center">
+                                <h6 className="font-pan-b text-[14px] leading-[20px]">Shipping</h6>
+                                <h6 className="font-pan-b text-[14px] leading-[20px]">₹10</h6>
+                            </div>
+                            <div className="flex justify-between items-center">
+                                <h6 className="font-pan-b text-[14px] leading-[20px]">Total</h6>
+                                <h6 className="font-pan-b text-[14px] leading-[20px]">₹145</h6>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </section>
             <section className="py-[62px] border-t border-[#D9D9D9]">

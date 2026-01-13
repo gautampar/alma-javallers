@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import SiderbarList from './components/SiderbarList'
 import MyInfo from './components/MyInfo';
 import Wishlist from './components/Wishlist';
+import OrderHistory from './components/OrderHistory';
 
 function Page() {
     const [activeTab, setActiveTab] = useState('My Info');
@@ -29,6 +30,9 @@ function Page() {
                             }
                             {activeTab === "Wishlist" &&
                                 <Wishlist />
+                            }
+                            {activeTab === "Order History" &&
+                                <OrderHistory />
                             }
                         </div>
                     </div>

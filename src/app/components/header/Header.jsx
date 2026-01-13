@@ -40,11 +40,11 @@ const menu = [
   { name: "Best-Sellers", path: "/solutions" },
   { name: "Silver", path: "/clients" },
   { name: "Earrings", path: "/earrings" },
-  { name: "Rings", path: "/career" },
-  { name: "Women", path: "/contact-us" },
-  { name: "Men", path: "/contact-us" },
-  { name: "Gifting", path: "/contact-us" },
-  { name: "Daily Wear", path: "/contact-us" },
+  { name: "Rings", path: "/" },
+  { name: "Women", path: "/" },
+  { name: "Men", path: "/" },
+  { name: "Gifting", path: "/" },
+  { name: "Daily Wear", path: "/" },
 ];
 
 function Header() {
@@ -81,7 +81,9 @@ function Header() {
           <div className="hidden lg:flex gap-[30px]">
             <Image src="/assets/nav/search.svg" onClick={() => setLoginOpen(true)}
               width={22} height={24} alt="search" />
-            <Image src="/assets/nav/heart.svg" width={26} height={22} alt="heart" />
+            <Link href="/profile">
+              <Image src="/assets/nav/heart.svg" width={26} height={22} alt="heart" />
+            </Link>
             <Image src="/assets/nav/Group.svg" width={20} height={24} alt="cart" onClick={() => setCartOpen(true)} className="cursor-pointer" />
           </div>
           <button
@@ -202,7 +204,9 @@ function Header() {
             </ul>
             <div className="flex gap-[20px] mt-[20px]">
               <Image src="/assets/nav/search.svg" width={22} height={24} alt="search" />
-              <Image src="/assets/nav/heart.svg" width={26} height={22} alt="heart" />
+              <Link href="/profile">
+                <Image src="/assets/nav/heart.svg" width={26} height={22} alt="heart" />
+              </Link>
               <Image src="/assets/nav/Group.svg" width={20} height={24} alt="cart" className="cursor-pointer"
                 onClick={() => setCartOpen(true)} />
             </div>
@@ -278,8 +282,9 @@ const CartDrawer = ({ open, onClose }) => {
               <h6 className="font-pan-b text-[14px] leading-[21px] text-[#2B3136]">+₹145.00</h6>
             </div>
             <p className="font-pan-r text-[11px] leading-[16px] text-[#2B3136]">* Prices incl. GST plus shipping costs</p>
-            <button
-              className="
+            <Link href="/cart" >
+              <button onClick={() => setCartOpen(false)}
+                className=" cursor-pointer
     bg-[#A24112]
     w-full
     text-center
@@ -295,9 +300,10 @@ const CartDrawer = ({ open, onClose }) => {
     hover:shadow-lg
     hover:-translate-y-[1px]
   "
-            >
-              Proceed to checkout
-            </button>
+              >
+                Proceed to checkout
+              </button>
+            </Link>
             <p className="font-pan-r text-[12px] leading-[18px] text-[#2B3136] underline">View cart for more product details</p>
           </div>
         </div>
