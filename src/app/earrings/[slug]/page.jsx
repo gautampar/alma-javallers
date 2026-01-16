@@ -6,6 +6,9 @@ import Image from 'next/image'
 import React, { useState } from 'react'
 
 function Page() {
+    const [openBilling, setOpenBilling] = useState(false);
+    const [openBillDetails, setOpenBillDetails] = useState(false);
+    const [taxDetails, setTaxDetails] = useState(false);
 
     return (
         <div className='bg-[#FFF9F2]'>
@@ -149,7 +152,8 @@ function Page() {
                                             <Image src="/assets/item/cart.svg" height={18} width={18} alt='cart' /> Add to Cart
                                         </button>
 
-                                        <button className="bg-[#888888] text-white px-[20px] md:px-[28px] py-[8px] rounded-[5px] text-[14px] md:text-[16px] leading-[24px]">
+                                        <button onClick={() => setOpenBilling(true)}
+                                            className="bg-[#888888] text-white px-[20px] md:px-[28px] py-[8px] rounded-[5px] text-[14px] md:text-[16px] leading-[24px]">
                                             Buy Now
                                         </button>
                                     </div>
@@ -245,12 +249,256 @@ function Page() {
 
                 </div>
             </section>
+            {openBilling && (
+                <div className="fixed inset-0 bg-black/30 overflow-y-auto flex justify-center items-center z-[9999] px-4 py-6">
+                    <div className="bg-white w-full max-w-[800px] rounded-[10px] shadow-lg p-6 space-y-4 relative max-h-[80vh] overflow-y-auto">
+
+                        {/* Close Button */}
+                        <button
+                            onClick={() => setOpenBilling(false)}
+                            className="absolute text-[30px] font-bold cursor-pointer top-3 right-3 text-gray-600 hover:text-black"
+                        >
+                            ✕
+                        </button>
+
+                        <h2 className="text-[18px] md:text-[22px] font-[400] text-[#3C4242] font-inter pb-[32px]">
+                            Billing Details
+                        </h2>
+
+                        <div className="grid lg:grid-cols-2 grid-cols-1 lg:gap-x-[38px] gap-x-[0px] lg:gap-y-[32px] gap-y-[20px]">
+                            <div className="grid gap-[10px]">
+                                <label className="font-pan-b text-[16px] sm:text-[16px] text-[#3C4242]">First Name*</label>
+                                <input
+                                    type="text"
+                                    placeholder="First Name"
+                                    className="border border-[#DDDCDC] rounded-[8px] px-[16px] py-[14px] text-[14px] text-[#3C4242] placeholder:text-[#9c9c9c] focus:outline-none"
+                                />
+                            </div>
+                            <div className="grid gap-[10px]">
+                                <label className="font-pan-b text-[16px] sm:text-[16px] text-[#3C4242]">Last Name*</label>
+                                <input
+                                    type="text"
+                                    placeholder="Last Name"
+                                    className="border border-[#DDDCDC] rounded-[8px] px-[16px] py-[14px] text-[14px] text-[#3C4242] placeholder:text-[#9c9c9c] focus:outline-none"
+                                />
+                            </div>
+                            <div className="grid gap-[10px]">
+                                <label className="font-pan-b text-[16px] sm:text-[16px] text-[#3C4242]">Country / Region*</label>
+                                <input
+                                    type="text"
+                                    placeholder="Country / Region"
+                                    className="border border-[#DDDCDC] rounded-[8px] px-[16px] py-[14px] text-[14px] text-[#3C4242] placeholder:text-[#9c9c9c] focus:outline-none"
+                                />
+                            </div>
+                            <div className="grid gap-[10px]">
+                                <label className="font-pan-b text-[16px] sm:text-[16px] text-[#3C4242]">Enter Pin Code*</label>
+                                <input
+                                    type="text"
+                                    placeholder="Enter Pin Code"
+                                    className="border border-[#DDDCDC] rounded-[8px] px-[16px] py-[14px] text-[14px] text-[#3C4242] placeholder:text-[#9c9c9c] focus:outline-none"
+                                />
+                            </div>
+                            <div className="grid gap-[10px]">
+                                <label className="font-pan-b text-[16px] sm:text-[16px] text-[#3C4242]">City*</label>
+                                <input
+                                    type="text"
+                                    placeholder="Town / City"
+                                    className="border border-[#DDDCDC] rounded-[8px] px-[16px] py-[14px] text-[14px] text-[#3C4242] placeholder:text-[#9c9c9c] focus:outline-none"
+                                />
+                            </div>
+                            <div className="grid gap-[10px]">
+                                <label className="font-pan-b text-[16px] sm:text-[16px] text-[#3C4242]">State*</label>
+                                <input
+                                    type="text"
+                                    placeholder="State"
+                                    className="border border-[#DDDCDC] rounded-[8px] px-[16px] py-[14px] text-[14px] text-[#3C4242] placeholder:text-[#9c9c9c] focus:outline-none"
+                                />
+                            </div>
+                            <div className="grid gap-[10px]">
+                                <label className="font-pan-b text-[16px] sm:text-[16px] text-[#3C4242]">Contact Number*</label>
+                                <input
+                                    type="text"
+                                    placeholder="Phone"
+                                    className="border border-[#DDDCDC] rounded-[8px] px-[16px] py-[14px] text-[14px] text-[#3C4242] placeholder:text-[#9c9c9c] focus:outline-none"
+                                />
+                            </div>
+                        </div>
+                        <div className="flex gap-[10px] items-center py-[30px]">
+                            <input type="checkbox" name="" id="" />
+                            <p className="font-[400] font-inter text-[18px] leading-[100%] text-[#3C4242]">Address same as default</p>
+                        </div>
+                        <button
+                            className="w-full bg-[#A24112] text-white py-3 rounded-md text-[16px] font-medium"
+                            onClick={() => {
+                                setOpenBilling(false);
+                                alert("Order Placed!");
+                            }}
+                        >
+                            Add Address
+                        </button>
+                    </div>
+                </div>
+            )}
+            {openBillDetails && (
+                <div className="fixed inset-0 bg-black/30 overflow-y-auto flex justify-center items-center z-[9999] px-4 py-6">
+                    <div className="bg-[#FFF9F2] w-full max-w-[800px] rounded-[10px] shadow-lg p-6 space-y-4 relative max-h-[80vh] overflow-y-auto">
+
+                        {/* Close Button */}
+                        <button
+                            onClick={() => setOpenBillDetails(false)}
+                            className="absolute text-[30px] font-bold cursor-pointer top-[10px] right-[20px] text-gray-600 hover:text-black"
+                        >
+                            ✕
+                        </button>
+
+                        <h2 className="text-[18px] md:text-[22px] font-[400] text-[#3C4242] font-inter pb-[32px] text-center">
+                            Bill Details
+                        </h2>
+                        <div className='lg:px-[60px] px-[30px]'>
+                            <div className='border border-[#DDDCDC] rounded-[12px] p-[30px]'>
+                                <div className="grid gap-[8px]">
+                                    <div className="flex justify-between items-center gap-[35px]">
+                                        <p className='max-w-[80%] w-full font-inter font-[400] text-[18px] leading-[26px] text-[#2B3136]'>
+                                            1.	Gold Value (22K)	4.800 g @ ₹ 6,000.00/g
+                                        </p>
+                                        <p className='max-w-[20%] w-full font-inter font-[400] text-[18px] leading-[26px] text-[#2B3136]'>
+                                            ₹ 28,800.00
+                                        </p>
+                                    </div>
+                                    <div className="flex justify-between items-center gap-[35px]">
+                                        <p className='max-w-[80%] w-full font-inter font-[400] text-[18px] leading-[26px] text-[#2B3136]'>
+                                            2.	Diamond/Gemstone Cost	(As per quality and carat weight)
+                                        </p>
+                                        <p className='max-w-[20%] w-full font-inter font-[400] text-[18px] leading-[26px] text-[#2B3136]'>
+                                            ₹ 15,000.00
+                                        </p>
+                                    </div>
+                                    <div className="flex justify-between items-center gap-[35px]">
+                                        <p className='max-w-[80%] w-full font-inter font-[400] text-[18px] leading-[26px] text-[#2B3136]'>
+                                            3.	Making Charges	(Craftsmanship/Labour)
+                                        </p>
+                                        <p className='max-w-[20%] w-full font-inter font-[400] text-[18px] leading-[26px] text-[#2B3136]'>
+                                            ₹ 2,880.00
+                                        </p>
+                                    </div>
+                                    <div className="flex justify-between items-center gap-[35px]">
+                                        <p className='max-w-[80%] w-full font-inter font-[400] text-[18px] leading-[26px] text-[#2B3136]'>
+                                            A	Subtotal	(Sum of 1 + 2 + 3)
+                                        </p>
+                                        <p className='max-w-[20%] w-full font-inter font-[400] text-[18px] leading-[26px] text-[#2B3136]'>
+                                            ₹ 46,680.00
+                                        </p>
+                                    </div>
+                                    <div className="flex justify-between items-center gap-[35px]">
+                                        <p className='max-w-[80%] w-full font-inter font-[400] text-[18px] leading-[26px] text-[#2B3136]'>
+                                            4.	GST (3%)	3% of Subtotal
+                                        </p>
+                                        <p className='max-w-[20%] w-full font-inter font-[400] text-[18px] leading-[26px] text-[#2B3136]'>
+                                            ₹ 1,400.40
+                                        </p>
+                                    </div>
+                                    <div className="flex justify-between items-center gap-[35px]">
+                                        <p className='max-w-[80%] w-full font-inter font-[400] text-[18px] leading-[26px] text-[#2B3136]'>
+                                            B	Total Amount	(A + 4)
+                                        </p>
+                                        <p className='max-w-[20%] w-full font-inter font-[400] text-[18px] leading-[26px] text-[#2B3136]'>
+                                            ₹ 48,080.40
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button
+                            className="w-full cursor-pointer bg-[#A24112] text-white py-3 rounded-md text-[16px] font-medium"
+                            onClick={() => setOpenBillDetails(false)}
+                        >
+                            Okay
+                        </button>
+
+                    </div>
+                </div>
+            )}
+            {taxDetails && (
+                <div className="fixed inset-0 bg-black/30 overflow-y-auto flex justify-center items-center z-[9999] px-4 py-6">
+                    <div className="bg-[#FFF9F2] w-full max-w-[600px] rounded-[10px] shadow-lg p-6 space-y-4 relative max-h-[80vh] overflow-y-auto">
+
+                        {/* Close Button */}
+                        <button
+                            onClick={() => setTaxDetails(false)}
+                            className="absolute text-[30px] font-bold cursor-pointer top-[10px] right-[20px] text-gray-600 hover:text-black"
+                        >
+                            ✕
+                        </button>
+
+                        <h2 className="text-[18px] md:text-[22px] font-[400] text-[#3C4242] font-inter pb-[32px] text-center">
+                            Tax Details:
+                        </h2>
+                        <div className='lg:px-[40px] px-[30px]'>
+                            <div className='border border-[#DDDCDC] rounded-[12px] p-[30px]'>
+                                <div className="grid gap-[8px]">
+                                    <div className="flex justify-between items-center gap-[35px]">
+                                        <p className='max-w-[80%] w-full font-inter font-[400] text-[18px] leading-[26px] text-[#2B3136]'>
+                                            Subtotal
+
+                                        </p>
+                                        <p className='max-w-[20%] w-full font-inter font-[400] text-[18px] leading-[26px] text-[#2B3136]'>
+                                            ₹ 85.00
+                                        </p>
+                                    </div>
+                                    <div className="flex justify-between items-center gap-[35px]">
+                                        <p className='max-w-[80%] w-full font-inter font-[400] text-[18px] leading-[26px] text-[#2B3136]'>
+                                            Tax Rate
+
+                                        </p>
+                                        <p className='max-w-[20%] w-full font-inter font-[400] text-[18px] leading-[26px] text-[#2B3136]'>
+
+                                            6.5%
+                                        </p>
+                                    </div>
+                                    <div className="flex justify-between items-center gap-[35px]">
+                                        <p className='max-w-[80%] w-full font-inter font-[400] text-[18px] leading-[26px] text-[#2B3136]'>
+                                            Tax Amount
+
+                                        </p>
+                                        <p className='max-w-[20%] w-full font-inter font-[400] text-[18px] leading-[26px] text-[#2B3136]'>
+
+                                            ₹ 5.53
+                                        </p>
+                                    </div>
+                                    <div className="flex justify-between items-center gap-[35px]">
+                                        <p className='max-w-[80%] w-full font-inter font-[400] text-[18px] leading-[26px] text-[#2B3136]'>
+                                            Total Due
+                                        </p>
+                                        <p className='max-w-[20%] w-full font-inter font-[400] text-[18px] leading-[26px] text-[#2B3136]'>
+
+                                            ₹ 90.53
+                                        </p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <button
+                            className="w-full cursor-pointer bg-[#A24112] text-white py-3 rounded-md text-[16px] font-medium"
+                            onClick={() => setTaxDetails(false)}
+                        >
+                            Okay
+                        </button>
+
+                    </div>
+                </div>
+            )}
 
         </div>
     )
 }
 
 export default Page
+
+
+
 
 
 

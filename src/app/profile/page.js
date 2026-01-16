@@ -14,7 +14,6 @@ function Page() {
         'Order History',
         'Saved Payment Method',
         'Account Settings',
-        'Sign out'
     ];
     return (
         <div className='bg-[#FFF9F2] min-h-screen mt-[156px]'>
