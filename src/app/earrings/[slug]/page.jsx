@@ -12,7 +12,7 @@ function Page() {
 
     return (
         <div className='bg-[#FFF9F2]'>
-            <section className="lg:mt-[156px] mt-[101px]">
+            <section>
                 <div className='lg:px-[64px] pt-[74px] px-[20px]'>
                     <div className="grid lg:grid-cols-2 grid-cols-1 2xl:gap-[106px] gap-[30px]">
                         <div>

@@ -16,7 +16,7 @@ function Page() {
         'Account Settings',
     ];
     return (
-        <div className='bg-[#FFF9F2] min-h-screen mt-[156px]'>
+        <div className='bg-[#FFF9F2] min-h-screen'>
             <section>
                 <div className="max-w-[1440px] w-full mx-auto lg:px-[120px] px-[20px]">
                     <div className='flex gap-[30px] lg:flex-row flex-col items-start'>

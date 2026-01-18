@@ -26,7 +26,7 @@ export default function HeroSlider() {
     ];
 
     return (
-        <section className="overflow-hidden relative mt-[120px] md:mt-[140px] lg:mt-[156px]">
+        <section className="overflow-hidden relative mt-[0px] md:mt-[0px] lg:mt-[0px]">
             <div ref={sliderInstanceRef} className="keen-slider">
 
                 {slides.map((item, index) => (

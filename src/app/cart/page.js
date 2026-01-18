@@ -22,7 +22,7 @@ function Page() {
 
     return (
         <div >
-            <div className="bg-[#FFF9F2] 2xl:pt-[264px] lg:pt-[200px] pt-[160px]">
+            <div className="bg-[#FFF9F2]">
                 <div className="lg:px-[164px] px-[20px]">
                     <div className="flex gap-[4px] items-center pb-[30px]">
                         <Image height={20} width={20} src="/assets/cart/arrow.svg" alt='arrow' />

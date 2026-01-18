@@ -56,7 +56,7 @@ function Page() {
         <div className='bg-[#FFF9F2] min-h-screen'>
             <section>
                 <div className="w-full flex justify-center">
-                    <div className="lg:max-w-[1440px] xl:max-w-full w-full flex gap-4 lg:gap-6 xl:gap-8 lg:flex-row flex-col mt-[100px] sm:mt-[120px] lg:mt-[156px] px-[16px] sm:px-[24px] md:px-[40px] lg:px-[48px] xl:px-[64px] pt-[30px] sm:pt-[42px]">
+                    <div className="lg:max-w-[1440px] xl:max-w-full w-full flex gap-4 lg:gap-6 xl:gap-8 lg:flex-row flex-col px-[16px] sm:px-[24px] md:px-[40px] lg:px-[48px] xl:px-[64px] pt-[30px] sm:pt-[42px]">
                         <div className="w-full lg:max-w-[240px] xl:max-w-[305px]">
                             <div className="lg:sticky lg:top-[140px] p-[10px]">
                                 <SortByDropdown />
